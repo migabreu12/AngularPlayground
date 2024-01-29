@@ -4,6 +4,7 @@
   <app-warning-banner></app-warning-banner>
   <app-success-banner></app-success-banner>
   <app-server></app-server>
+
   <!-- <div app-server></div> 'this uses the attribute way' --> 
   <!--<div class="app-server"></div> 'this uses the class way'-->
   <!-- Outputting data -->
@@ -13,9 +14,13 @@
   <!-- Reacting to user events -->
   <!-- Event Binding (event)="expression") 
        Event binding let's you react to any html events
-       You could, but should never, put code within the "" to do the logic there -->
+       You could, but should never, put code within the "" to do the logic there.
+       You can use the $event is a reserved variable name when using event binding. 
+       The $event variable passes in whatever value the event sends out. -->
 
-  <!-- Two-Way-Binding where we react and output data -->
+  <!-- Two-Way-Binding where we react and output data. To enable Two-Way-Binding,
+       The FormsModule must be imported from @angular/forms. Two-Way-Binding let's you bind/act/edit
+       In both directions -->
   <!-- [(ngModel)]="data" -->
 
 </div>

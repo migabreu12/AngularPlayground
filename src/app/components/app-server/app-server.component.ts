@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-server.component.scss']
 })
 export class AppServerComponent {
+  public username: string;
 
+  public constructor() {
+    this.username = "";
+  }
+
+  public resetUsername(): void {
+    this.username = "";
+  }
 }

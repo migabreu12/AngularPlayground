@@ -1,1 +1,10 @@
-<p>app-server works!</p>
+<div>
+    <input type="text" [(ngModel)]="username">
+    <br>
+    {{ username }}
+    <br>
+    <button
+        [innerText]="'Button Text'"
+        [disabled]="!username"
+        (click)="resetUsername()"></button>
+</div>
