@@ -6,5 +6,18 @@
     <button
         [innerText]="'Button Text'"
         [disabled]="!username"
-        (click)="resetUsername()"></button>
+        (click)="resetUsername()">
+    </button>
+
+    <button
+        [innerText]="'Display Details'"
+        (click)="toggleParagraphDisplapy()"
+    ></button>
+    <p *ngIf="paragraphDisplay">Secret Password = tuna</p>
+    <p 
+        *ngFor="let buttonClick of displayButtonClicks"
+        [ngStyle]="{
+                backgroundColor: getClicksBackgroundColor(buttonClick),
+                color: buttonClick > 4 ? 'white' : ''
+            }">{{ buttonClick }}</p>
 </div>

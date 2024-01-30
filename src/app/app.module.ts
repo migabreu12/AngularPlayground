@@ -7,6 +7,7 @@ import { AppServerComponent } from './components/app-server/app-server.component
 import { WarningBannerComponent } from './components/warning-banner/warning-banner.component';
 import { SuccessBannerComponent } from './components/success-banner/success-banner.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

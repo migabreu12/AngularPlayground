@@ -8,13 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-server.component.scss']
 })
 export class AppServerComponent {
-  public username: string;
+  public username: string = "";
+  public paragraphDisplay = false;
+  public displayButtonClicks: number[] = [];
 
   public constructor() {
-    this.username = "";
   }
 
   public resetUsername(): void {
     this.username = "";
+  }
+
+  public toggleParagraphDisplapy(): void {
+    this.paragraphDisplay = !this.paragraphDisplay;
+    this.displayButtonClicks.push(this.displayButtonClicks.length + 1)
+  }
+
+  public getClicksBackgroundColor(value: number) : string {
+    return value > 4 ? "blue" : '';
   }
 }
