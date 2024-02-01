@@ -1,11 +1,20 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-server', //angular element
   // selector: '[app-server∂]', // attribute way
   // selector: '.app-server', // css class way
   templateUrl: './app-server.component.html',
-  styleUrls: ['./app-server.component.scss']
+  styleUrls: ['./app-server.component.scss'],
+  // Encapsulation is a feature of angular that let's each component have a unique class
+  // for which angular then applies the styles found in the component's styleUrls (or styles).
+  // For example, adding color red to this component's scss file will change all text to red within
+  // this component; The way the color: red is applied, though, is via the encapsulation class that's
+  // applied to this component's html elements found within the html file (templateUrl).
+  // Setting ViewEncapsulation.None turns this angular feature off.Turning off encapsulation
+  // removes the html classes which then opens up the component to be modified by other existing styles
+  // from parent components.
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class AppServerComponent {
   // you can add an alias to input components
