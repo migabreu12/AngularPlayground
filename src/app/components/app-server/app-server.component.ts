@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-server', //angular element
@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-server.component.scss']
 })
 export class AppServerComponent {
+  // you can add an alias to input components
+  // Property binding will work but it will not bind to someObject,
+  // it will have to be bound to aliasSample
+  // So the property binding on the html side will have to look like
+  // [aliasSample]="'someText'" rather than [someObject]="'someText'"
+  @Input('aliasSample') public someObject: string = "";
   public username: string = "";
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
