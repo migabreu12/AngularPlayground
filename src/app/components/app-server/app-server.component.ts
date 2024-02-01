@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-server', //angular element
@@ -14,6 +14,14 @@ export class AppServerComponent {
   // So the property binding on the html side will have to look like
   // [aliasSample]="'someText'" rather than [someObject]="'someText'"
   @Input('aliasSample') public someObject: string = "";
+
+
+  // Custom types can be created within the EventEmitter generic braces or, preferrably, use a model.
+  // the () calls the constructor to create the event emitter and assign it to the serverCreated property.
+  // Emitting the value uses the same typescript object creation where we use serverCreated.emit({property: value, ... })
+  // Aliases work here too
+  @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+
   public username: string = "";
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
