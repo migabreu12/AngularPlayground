@@ -30,5 +30,7 @@
         <input #testLocalElement type="text">
         <button (click)="updateLocalReferenceValue(testLocalElement, testLocalElement.value)">Update Textbox below</button>
         <div [innerText]="localReferenceValue"></div>
+        <input #viewChildExample type="text">
+        <button (click)="resetViewChildExample()">Reset resetViewChildExample</button>
     </div>
 </div>

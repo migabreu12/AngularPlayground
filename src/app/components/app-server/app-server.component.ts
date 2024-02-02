@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-server', //angular element
@@ -17,7 +17,7 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
   // don't leak into this component.
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppServerComponent {
+export class AppServerComponent implements OnInit {
   // you can add an alias to input components
   // Property binding will work but it will not bind to someObject,
   // it will have to be bound to aliasSample
@@ -32,12 +32,31 @@ export class AppServerComponent {
   // Aliases work here too
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 
+  // Adding {static: true} allows the ngOnInit method to access the ViewChild property. static is set to false by
+  // default; The view child property by default can still be used in other areas of the typescript file (just not
+  // ngOnInit if static is set to false).
+  // Instead of a string of the local reference, you can actually assign an element and view child will
+  // select the first instance of said chosen element. This works for cutom elements too.
+  // NOTE: I got an error for the following line:
+  // @ViewChild('viewChildExample', { static: true }) viewChildExample: HTMLInputElement;
+  // "has no initializer and is not definitely assigned in the constructor" because strict mode
+  // in the compiler options of the tsconfig.json file was set to true. It must be selt for false
+  // for the aforementioned line to work without errors.
+  // @ViewChild('viewChildExample', { static: true }) viewChildExample; only works if strict is set to false
+  @ViewChild('viewChildExample', { static: true }) viewChildExample;
+
   public username: string = "";
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
   public localReferenceValue: string = "";
 
   public constructor() {
+  }
+
+  public ngOnInit() {
+    // nativeElement worked when the property did not have a specified object type
+    // There's a better way to access the dom using directives. This way of modifying dom elements is not advised
+    this.viewChildExample.nativeElement.value = "Test of the viewchild from within ngOnInit";
   }
 
   public resetUsername(): void {
@@ -55,5 +74,9 @@ export class AppServerComponent {
 
   public updateLocalReferenceValue(localReferencedElement: HTMLInputElement, value: string) {
     this.localReferenceValue = value;
+  }
+
+  public resetViewChildExample(): void {
+    this.viewChildExample.nativeElement.value = "";
   }
 }
