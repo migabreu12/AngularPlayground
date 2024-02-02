@@ -13,7 +13,8 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
   // applied to this component's html elements found within the html file (templateUrl).
   // Setting ViewEncapsulation.None turns this angular feature off.Turning off encapsulation
   // removes the html classes which then opens up the component to be modified by other existing styles
-  // from parent components.
+  // from parent components. Encapsulation also ensures that other component styling (like parent components)
+  // don't leak into this component.
   encapsulation: ViewEncapsulation.Emulated
 })
 export class AppServerComponent {
