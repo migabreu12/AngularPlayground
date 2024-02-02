@@ -20,4 +20,15 @@
                 backgroundColor: getClicksBackgroundColor(buttonClick),
                 color: buttonClick > 4 ? 'white' : ''
             }">{{ buttonClick }}</p>
+    <!-- Local references can be placed on any html element. Ex <p #serverName></p>. This allows access to
+        the whole html element and all it's properties. References can be used anywhere in the html template
+        even as arguments to methods, but you cannot use the reference directly in the typescript code; You can
+        pass the referenced element as an argument from a method to the typescript code as a parameter. The
+        downside is that the values are passed in by value, not by reference (which means you cannot modify just by
+        passing in the element to a method and then modifying the element.)) -->
+    <div class="row">
+        <input #testLocalElement type="text">
+        <button (click)="updateLocalReferenceValue(testLocalElement, testLocalElement.value)">Update Textbox below</button>
+        <div [innerText]="localReferenceValue"></div>
+    </div>
 </div>

@@ -35,6 +35,7 @@ export class AppServerComponent {
   public username: string = "";
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
+  public localReferenceValue: string = "";
 
   public constructor() {
   }
@@ -50,5 +51,9 @@ export class AppServerComponent {
 
   public getClicksBackgroundColor(value: number) : string {
     return value > 4 ? "blue" : '';
+  }
+
+  public updateLocalReferenceValue(localReferencedElement: HTMLInputElement, value: string) {
+    this.localReferenceValue = value;
   }
 }
