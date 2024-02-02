@@ -33,4 +33,11 @@
         <input #viewChildExample type="text">
         <button (click)="resetViewChildExample()">Reset resetViewChildExample</button>
     </div>
+    <div class="row">
+        <!-- Using <ngContent></ngContent> is a directive that allows adding content from the parent component
+            into this component. For example, if I have <comp1><comp2><p>here</p></comp2></comp1> where 
+            comp2 looks like <ngContent></ngContent> then what will happen is that the <p>here</p> will show up
+            in place of ngContent of comp2. I dont' like this. This is a way of projecting content. This is good, though
+            for custom styling of html code buttons (for example tabs) -->
+    </div>
 </div>
