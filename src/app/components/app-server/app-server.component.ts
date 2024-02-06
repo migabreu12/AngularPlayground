@@ -63,7 +63,7 @@ export class AppServerComponent implements OnInit {
     // There's a better way to access the dom using directives. This way of modifying dom elements is not advised
     this.viewChildExample.nativeElement.value = "Test of the viewchild from within ngOnInit";
 
-    console.log(this.contentChildExample.nativeElement.value);
+    console.log(this.contentChildExample.nativeElement.innerText);
   }
 
   public resetUsername(): void {
