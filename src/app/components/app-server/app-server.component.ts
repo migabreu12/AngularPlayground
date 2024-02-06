@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-server', //angular element
@@ -45,6 +45,11 @@ export class AppServerComponent implements OnInit {
   // @ViewChild('viewChildExample', { static: true }) viewChildExample; only works if strict is set to false
   @ViewChild('viewChildExample', { static: true }) viewChildExample;
 
+  // ContentChild is like ViewChild but let's you access dom elements from within the ngContent element
+  // Conntent child also works with local references passed in to the ngContent element
+  @ContentChild('contentChildExample', { static: true }) contentChildExample: ElementRef;
+
+
   public username: string = "";
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
@@ -57,6 +62,8 @@ export class AppServerComponent implements OnInit {
     // nativeElement worked when the property did not have a specified object type
     // There's a better way to access the dom using directives. This way of modifying dom elements is not advised
     this.viewChildExample.nativeElement.value = "Test of the viewchild from within ngOnInit";
+
+    console.log(this.contentChildExample.nativeElement.value);
   }
 
   public resetUsername(): void {
