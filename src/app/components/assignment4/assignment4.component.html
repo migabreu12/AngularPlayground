@@ -3,5 +3,7 @@
     (stopClicked)="stopButtonClicked()"
     (valueEmitted)="valueEmitted($event)"
 ></app-game-control>
-<p>{{ startClicked }}</p>
-<p>{{ randomNumberEmitted }}</p>
+<div *ngFor="let emittedValue of EmittedValues">
+    <app-even-value *ngIf="emittedValueIsEven(emittedValue)">{{ emittedValue }}</app-even-value>
+    <app-odd-value *ngIf="!emittedValueIsEven(emittedValue)">{{ emittedValue }}</app-odd-value>
+</div>

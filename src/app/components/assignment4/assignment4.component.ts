@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class Assignment4Component {
   public startClicked = false;
-  public randomNumberEmitted: number;
-  
+  public EmittedValues: number[] = [];
 
   public startButtonClicked(): void {
     this.startClicked = true;
@@ -18,7 +17,11 @@ export class Assignment4Component {
     this.startClicked = false;
   }
   
-  public valueEmitted(event: number) {
-    this.randomNumberEmitted = event;
+  public valueEmitted(event: number): void {
+    this.EmittedValues.push(event);
+  }
+
+  public emittedValueIsEven(value: number): boolean {
+    return value%2 == 0;
   }
 }
