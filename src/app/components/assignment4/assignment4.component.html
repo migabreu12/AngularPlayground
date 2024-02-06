@@ -1,0 +1,7 @@
+<app-game-control
+    (startClicked)="startButtonClicked()"
+    (stopClicked)="stopButtonClicked()"
+    (valueEmitter)="valueEmitted($event)"
+></app-game-control>
+<p>{{ startClicked }}</p>
+<p>{{ randomNumberEmitted }}</p>

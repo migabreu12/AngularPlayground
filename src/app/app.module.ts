@@ -8,6 +8,7 @@ import { WarningBannerComponent } from './components/warning-banner/warning-bann
 import { SuccessBannerComponent } from './components/success-banner/success-banner.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Assignment4Module } from './components/assignment4/assignment4.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    Assignment4Module
   ],
   providers: [],
   bootstrap: [AppComponent]
