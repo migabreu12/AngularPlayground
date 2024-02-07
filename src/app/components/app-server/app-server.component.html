@@ -45,8 +45,23 @@
     <app-assignment4></app-assignment4>
 
     <!-- attribute vs structural diretives:
+        What is a directive?
+        In Angular, Directives are defined as classes that can add new behavior to the elements in the template or modify
+        existing behavior. The purpose of Directives in Angular is to maneuver the DOM, be it by adding new elements to
+        DOM or removing elements and even changing the appearance of the DOM elements.
+
+        Directives are meant to be a function that executes when found in the DOM by the Angular compiler to extend the
+        power of the HTML with new syntax.
+
+        Directive in angular can be categorized into the following types: Component Directive, Structural Directive,
+        and Attribute directive.
+
+        notes above are from:
+        https://www.simplilearn.com/what-are-directives-in-angular-article#:~:text=In%20Angular%2C%20Directives%20are%20defined,appearance%20of%20the%20DOM%20elements.
+
         A structural directive would be *ngFor 
-        A attribute directive would be 
+        A attribute directive would be [ngClass] or [ngStyle]. The square brackets [] indicate that we're binding to some property (which is 
+            the ngClass or ngStyle directive)
     
         Attribute directives 'sit' on top of the element; As in the attribute directive adds to the element like a topping on a meal.
             It affects/changes the attribute/property of the element.
