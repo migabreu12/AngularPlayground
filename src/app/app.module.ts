@@ -9,6 +9,7 @@ import { SuccessBannerComponent } from './components/success-banner/success-bann
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Assignment4Module } from './components/assignment4/assignment4.module';
+import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { Assignment4Module } from './components/assignment4/assignment4.module';
     AppServerComponent,
     WarningBannerComponent,
     SuccessBannerComponent,
+    BasicHighlightDirective
   ],
   imports: [
     BrowserModule,
