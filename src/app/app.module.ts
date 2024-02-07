@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Assignment4Module } from './components/assignment4/assignment4.module';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
+import { BetterHighlightDirective } from './shared/directives/better-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BasicHighlightDirective } from './shared/directives/basic-highlight.dir
     AppServerComponent,
     WarningBannerComponent,
     SuccessBannerComponent,
-    BasicHighlightDirective
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
