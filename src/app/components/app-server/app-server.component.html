@@ -77,4 +77,13 @@
     >
         A better way of implementing directives
     </div>
+
+    <button class="btn btn-primary" (click)="toggleStructuralDirectiveText()">Toggle text below</button>
+    <div *appUnless="!displayStructuralDirective">Test text for the custom structural directive.</div>
+
+    <div [ngSwitch]="displayStructuralDirective">
+        <div *ngSwitchCase="true">display Structural Directive is set to true</div>
+        <div *ngSwitchCase="false">display Structural Directive is set to false</div>
+        <div *ngSwitchDefault="undefined">display Structural Directive is set to undefined</div>
+    </div>
 </div>

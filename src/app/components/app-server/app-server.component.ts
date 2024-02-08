@@ -54,6 +54,7 @@ export class AppServerComponent implements OnInit {
   public paragraphDisplay = false;
   public displayButtonClicks: number[] = [];
   public localReferenceValue: string = "";
+  public displayStructuralDirective = false;
 
   public constructor() {
   }
@@ -85,5 +86,9 @@ export class AppServerComponent implements OnInit {
 
   public resetViewChildExample(): void {
     this.viewChildExample.nativeElement.value = "";
+  }
+
+  public toggleStructuralDirectiveText(): void {
+    this.displayStructuralDirective = !this.displayStructuralDirective;
   }
 }

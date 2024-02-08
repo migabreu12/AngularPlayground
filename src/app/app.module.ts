@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { Assignment4Module } from './components/assignment4/assignment4.module';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './shared/directives/better-highlight.directive';
+import { UnlessDirective } from './shared/directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BetterHighlightDirective } from './shared/directives/better-highlight.d
     WarningBannerComponent,
     SuccessBannerComponent,
     BasicHighlightDirective,
-    BetterHighlightDirective
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
