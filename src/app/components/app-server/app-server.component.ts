@@ -113,6 +113,5 @@ export class AppServerComponent implements OnInit {
 
   public addSampleDataEntry() {
     this.sampleDataService.addTestData("Something Else", this.sampleDataServiceData.length);
-    this.sampleDataServiceData = this.sampleDataService.getTestData();
   }
 }
