@@ -29,6 +29,10 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // Important note: The service that's injected will also be instance that's injected to child components.
   // "The instances don't propogate up, they only go down that tree of components"
   // Another thing to note is that adding the service to the providers will create a new instance of thet service.
+  // Of course, adding the service to the providers list of the app module will ensure every injection shares the same instance.
+  // The aforementioned statement is true unless it's overwritten using a local providers service declaration.
+  // The @Injectable() meta data tag needs to be added to classes that are not components or directives to ensure that
+  // the Angular dependency injector can inject services to the constructor; This is true for services.
   providers: [SampleDataService]
 })
 export class AppServerComponent implements OnInit {
