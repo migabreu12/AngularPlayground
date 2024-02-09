@@ -1,4 +1,5 @@
 import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { LoggingService } from 'src/app/shared/services/logging.service';
 
 @Component({
   selector: 'app-server', //angular element
@@ -56,7 +57,7 @@ export class AppServerComponent implements OnInit {
   public localReferenceValue: string = "";
   public displayStructuralDirective = false;
 
-  public constructor() {
+  public constructor(private loggingService: LoggingService) {
   }
 
   public ngOnInit() {
@@ -90,5 +91,9 @@ export class AppServerComponent implements OnInit {
 
   public toggleStructuralDirectiveText(): void {
     this.displayStructuralDirective = !this.displayStructuralDirective;
+  }
+
+  public testLoggingService() {
+    this.loggingService.logMessage("Test Message");
   }
 }
