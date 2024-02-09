@@ -26,6 +26,8 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // providers: [LoggingService]
   // Another way is to use the inject method to assign a local property the service. The following code illustrates that:
   // this.loggingService = inject(LoggingService);
+  // Important note: The service that's injected will also be instance that's injected to child components.
+  // "The instances don't propogate up, they only go down that tree of components"
   providers: [SampleDataService]
 })
 export class AppServerComponent implements OnInit {
@@ -59,7 +61,6 @@ export class AppServerComponent implements OnInit {
   // ContentChild is like ViewChild but let's you access dom elements from within the ngContent element
   // Conntent child also works with local references passed in to the ngContent element
   @ContentChild('contentChildExample', { static: true }) contentChildExample: ElementRef;
-
 
   public username: string = "";
   public paragraphDisplay = false;
