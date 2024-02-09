@@ -88,4 +88,9 @@
     </div>
 
     <button class="btn btn-primary" (click)="testLoggingService()">Test Console Logging Service</button>
+
+    <button class="btn btn-primary" (click)="addSampleDataEntry()">Add to test data </button>
+    <div *ngFor="let testData of sampleDataServiceData">
+        {{ testData.name }} - {{ testData.value }}
+    </div>
 </div>

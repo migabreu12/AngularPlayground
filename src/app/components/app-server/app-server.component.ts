@@ -1,5 +1,6 @@
 import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { LoggingService } from 'src/app/shared/services/logging.service';
+import { SampleDataService } from 'src/app/shared/services/sample-data.service';
 
 @Component({
   selector: 'app-server', //angular element
@@ -25,6 +26,7 @@ import { LoggingService } from 'src/app/shared/services/logging.service';
   // providers: [LoggingService]
   // Another way is to use the inject method to assign a local property the service. The following code illustrates that:
   // this.loggingService = inject(LoggingService);
+  providers: [SampleDataService]
 })
 export class AppServerComponent implements OnInit {
   // you can add an alias to input components
@@ -64,8 +66,9 @@ export class AppServerComponent implements OnInit {
   public displayButtonClicks: number[] = [];
   public localReferenceValue: string = "";
   public displayStructuralDirective = false;
+  public sampleDataServiceData: { name: string, value: number }[] = [];
 
-  public constructor(private loggingService: LoggingService) {
+  public constructor(private loggingService: LoggingService, private sampleDataService: SampleDataService) {
   }
 
   public ngOnInit() {
@@ -74,6 +77,8 @@ export class AppServerComponent implements OnInit {
     this.viewChildExample.nativeElement.value = "Test of the viewchild from within ngOnInit";
 
     console.log(this.contentChildExample.nativeElement.innerText);
+
+    this.sampleDataServiceData = this.sampleDataService.getTestData();
   }
 
   public resetUsername(): void {
@@ -103,5 +108,10 @@ export class AppServerComponent implements OnInit {
 
   public testLoggingService() {
     this.loggingService.logMessage("Test Message");
+  }
+
+  public addSampleDataEntry() {
+    this.sampleDataService.addTestData("Something Else", this.sampleDataServiceData.length);
+    this.sampleDataServiceData = this.sampleDataService.getTestData();
   }
 }
