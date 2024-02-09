@@ -28,6 +28,7 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // this.loggingService = inject(LoggingService);
   // Important note: The service that's injected will also be instance that's injected to child components.
   // "The instances don't propogate up, they only go down that tree of components"
+  // Another thing to note is that adding the service to the providers will create a new instance of thet service.
   providers: [SampleDataService]
 })
 export class AppServerComponent implements OnInit {
