@@ -23,6 +23,8 @@ import { LoggingService } from 'src/app/shared/services/logging.service';
   // })
   // As for providers, use the following code:
   // providers: [LoggingService]
+  // Another way is to use the inject method to assign a local property the service. The following code illustrates that:
+  // this.loggingService = inject(LoggingService);
 })
 export class AppServerComponent implements OnInit {
   // you can add an alias to input components
