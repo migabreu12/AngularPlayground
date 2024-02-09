@@ -16,7 +16,13 @@ import { LoggingService } from 'src/app/shared/services/logging.service';
   // removes the html classes which then opens up the component to be modified by other existing styles
   // from parent components. Encapsulation also ensures that other component styling (like parent components)
   // don't leak into this component.
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
+  // Using providers: is how you provide DI of a service when the service itself is not injectable via root using the following:
+  // @Injectable({
+  //    providedIn: 'root'
+  // })
+  // As for providers, use the following code:
+  // providers: [LoggingService]
 })
 export class AppServerComponent implements OnInit {
   // you can add an alias to input components
