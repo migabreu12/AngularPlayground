@@ -22,8 +22,6 @@ export class BetterHighlightDirective implements OnInit {
   @HostBinding('style.color') color;
 
   constructor(
-      private elementRef: ElementRef,
-      private renderer: Renderer2
     ) { }
 
   public ngOnInit() {
@@ -34,14 +32,14 @@ export class BetterHighlightDirective implements OnInit {
   }
 
   // Using the host listener decorator is a nice tool to use for dynamic styling
-  @HostListener('mouseenter') mouseEnter(eventData: Event) {
+  @HostListener('mouseenter') mouseEnter() {
     // this.renderer.setStyle(this.elementRef.nativeElement, "background-color", "blue");
     // this.renderer.setStyle(this.elementRef.nativeElement, "color", "white");
     this.backgroundColor = this.highlightBackgroundColor;
     this.color = this.highlightColor;
   }
 
-  @HostListener('mouseleave') mouseLeave(eventData: Event) {
+  @HostListener('mouseleave') mouseLeave() {
     // this.renderer.setStyle(this.elementRef.nativeElement, "background-color", "transparent");
     // this.renderer.setStyle(this.elementRef.nativeElement, "color", "black");
     this.backgroundColor = this.defaultBackgroundColor;
