@@ -118,5 +118,11 @@ export class AppServerComponent implements OnInit {
 
   public addSampleDataEntry() {
     this.sampleDataService.addTestData("Something Else", this.sampleDataServiceData.length);
+    // The following line is used to test if the service test data property was being updated rather than a local version.
+    // The data service indeed gets updated so the same data propogates throughout the app.
+    // The same data gets used because of the hierarchy instance of the DI'ed object but what was surprising was
+    // that the copied objects (properties that copy the value of the data service property) get their values updated too.
+    // Seems like it's copied by reference rather than value or two way data binding. TODO: Find out if it's reference or 2 way b
+    // console.log("This is the length of the data set in the service: " + this.sampleDataService.getTestData().length)
   }
 }
