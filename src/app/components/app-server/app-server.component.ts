@@ -126,5 +126,8 @@ export class AppServerComponent implements OnInit {
     // * if passing an object, array, or the like, then it is Pass by Reference, and for primitive types like number, it is Pass by Value
     // * https://www.infragistics.com/community/blogs/b/infragistics/posts/angular-components-pass-by-reference-or-pass-by-value#:~:text=Since%20data%20is%20being%20passed,it%20is%20Pass%20by%20Value.
     // console.log("This is the length of the data set in the service: " + this.sampleDataService.getTestData().length)
+    // The proper way to get data updates is via emits rather than local variables assigned to the service property via reference.
+    // We can more easily track changes through emitters and setter from a service rather than local variable changes.
+    // Defensive programming is the name of the game.
   }
 }
