@@ -122,7 +122,9 @@ export class AppServerComponent implements OnInit {
     // The data service indeed gets updated so the same data propogates throughout the app.
     // The same data gets used because of the hierarchy instance of the DI'ed object but what was surprising was
     // that the copied objects (properties that copy the value of the data service property) get their values updated too.
-    // Seems like it's copied by reference rather than value or two way data binding. TODO: Find out if it's reference or 2 way b
+    // Seems like it's copied by reference rather than value or two way data binding. 
+    // * if passing an object, array, or the like, then it is Pass by Reference, and for primitive types like number, it is Pass by Value
+    // * https://www.infragistics.com/community/blogs/b/infragistics/posts/angular-components-pass-by-reference-or-pass-by-value#:~:text=Since%20data%20is%20being%20passed,it%20is%20Pass%20by%20Value.
     // console.log("This is the length of the data set in the service: " + this.sampleDataService.getTestData().length)
   }
 }
