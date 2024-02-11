@@ -12,6 +12,7 @@ import { Assignment4Module } from './components/assignment4/assignment4.module';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './shared/directives/better-highlight.directive';
 import { UnlessDirective } from './shared/directives/unless.directive';
+import { Assignment5Module } from './components/assignment5/assignment5.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UnlessDirective } from './shared/directives/unless.directive';
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    Assignment4Module
+    Assignment4Module,
+    Assignment5Module
   ],
   providers: [],
   bootstrap: [AppComponent]
