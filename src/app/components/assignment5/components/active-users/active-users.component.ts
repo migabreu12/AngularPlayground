@@ -4,8 +4,7 @@ import { User } from '../../models/users.model';
 
 @Component({
   selector: 'app-active-users',
-  templateUrl: './active-users.component.html',
-  styleUrls: ['./active-users.component.scss']
+  templateUrl: './active-users.component.html'
 })
 export class ActiveUsersComponent implements OnInit {
   public activeUsers: User[] = [];

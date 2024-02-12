@@ -3,11 +3,10 @@ import { User } from '../../models/users.model';
 
 @Component({
   selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  templateUrl: './users-list.component.html'
 })
 export class UsersListComponent {
-  @Output() emitSetStatus: EventEmitter<User> = new EventEmitter<User>();
+  @Output() emitSetStatus : EventEmitter<User> = new EventEmitter<User>();
   @Input() users: User[] = [];
   @Input() title: string = "Users List";
 

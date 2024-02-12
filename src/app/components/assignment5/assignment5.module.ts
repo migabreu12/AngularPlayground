@@ -5,8 +5,6 @@ import { Assignment5Component } from './assignment5.component';
 import { InactiveUsersComponent } from './components/inactive-users/inactive-users.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 
-
-
 @NgModule({
   exports: [
     Assignment5Component

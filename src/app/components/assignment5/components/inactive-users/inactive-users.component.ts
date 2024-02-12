@@ -4,8 +4,7 @@ import { User } from '../../models/users.model';
 
 @Component({
   selector: 'app-inactive-users',
-  templateUrl: './inactive-users.component.html',
-  styleUrls: ['./inactive-users.component.scss']
+  templateUrl: './inactive-users.component.html'
 })
 export class InactiveUsersComponent implements OnInit {
   public inactiveUsers: User[] = [];
