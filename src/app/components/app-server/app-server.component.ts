@@ -118,14 +118,16 @@ export class AppServerComponent implements OnInit {
 
   public addSampleDataEntry() {
     this.sampleDataService.addTestData("Something Else", this.sampleDataServiceData.length);
-    // The following line is used to test if the service test data property was being updated rather than a local version.
+    // The following console.log line is used to test if the service test data property was being updated rather than a local version.
     // The data service indeed gets updated so the same data propogates throughout the app.
     // The same data gets used because of the hierarchy instance of the DI'ed object but what was surprising was
     // that the copied objects (properties that copy the value of the data service property) get their values updated too.
     // Seems like it's copied by reference rather than value or two way data binding. 
     // * if passing an object, array, or the like, then it is Pass by Reference, and for primitive types like number, it is Pass by Value
     // * https://www.infragistics.com/community/blogs/b/infragistics/posts/angular-components-pass-by-reference-or-pass-by-value#:~:text=Since%20data%20is%20being%20passed,it%20is%20Pass%20by%20Value.
+    //
     // console.log("This is the length of the data set in the service: " + this.sampleDataService.getTestData().length)
+    //
     // The proper way to get data updates is via emits rather than local variables assigned to the service property via reference.
     // We can more easily track changes through emitters and setter from a service rather than local variable changes.
     // Defensive programming is the name of the game.

@@ -10,10 +10,18 @@ import { User } from '../../models/users.model';
 export class ActiveUsersComponent implements OnInit {
   public activeUsers: User[] = [];
 
-  public constructor(private userService: UsersService
+  public constructor(private usersService: UsersService
     ) {};
 
   public ngOnInit(): void {
-    this.activeUsers = this.userService.getActiveUsers();
+    this.activeUsers = this.usersService.getActiveUsers();
+
+    this.usersService.userUpdatedEmitter.subscribe(() => {
+      this.activeUsers = this.usersService.getActiveUsers();
+    });
+  }
+
+  public setUserToInactive(user: User) {
+    this.usersService.setStatus(user, false);
   }
 }

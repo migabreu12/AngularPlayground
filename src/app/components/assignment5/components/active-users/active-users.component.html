@@ -1,7 +1,5 @@
-<h4>Active Users</h4>
-<ul class="list-group">
-    <li
-        class="list-group-item"
-        *ngFor="let user of activeUsers"
-    >{{ user.name }} </li>
-</ul>
+<app-users-list
+    [users]="activeUsers"
+    [title]="'Active Users'"
+    (emitSetStatus)="setUserToInactive($event)">
+</app-users-list>

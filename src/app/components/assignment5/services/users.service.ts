@@ -20,11 +20,20 @@ export class UsersService {
     }
   ];
 
-  @Output() userUpdatedEmitter: EventEmitter<string[]>;
+  @Output() userUpdatedEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   public getActiveUsers(): User[] {
-    return this.users.filter(x => x.isActiveStatus == true);
+    return this.users.filter(x => x.isActiveStatus);
+  }
+
+  public getInactiveUsers(): User[] {
+    return this.users.filter(x => !x.isActiveStatus)
+  }
+
+  public setStatus(user: User, activeStatus: boolean) {
+    this.users.find(existingUser => existingUser == user).isActiveStatus = activeStatus;
+    this.userUpdatedEmitter.emit();
   }
 }

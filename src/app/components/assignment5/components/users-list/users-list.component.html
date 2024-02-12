@@ -1,0 +1,7 @@
+<h4>{{ title }}</h4>
+<ul class="list-group">
+    <li
+        class="list-group-item"
+        *ngFor="let user of users"
+    >{{ user.name }} | <a href="#" (click)="emitSetActiveStatus(user)">Set to {{ user.isActiveStatus ? 'Inactive' : 'Active' }}</a></li>
+</ul>

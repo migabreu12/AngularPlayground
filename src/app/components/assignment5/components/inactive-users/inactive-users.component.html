@@ -1,0 +1,5 @@
+<app-users-list
+    [users]="inactiveUsers"
+    [title]="'Inactive Users'"
+    (emitSetStatus)="setStatusToActive($event)">
+</app-users-list>
