@@ -18,8 +18,10 @@ import { Assignment4Component } from './components/assignment4/assignment4.compo
 import { Assignment5Component } from './components/assignment5/assignment5.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 
+// This can be moved to the app routing module but will keep it here for now
 const appRoutes: Routes = [
   { path: "", component: HomeComponentComponent },
+  { path: "home", component: HomeComponentComponent },
   { path: "assignment4", component: Assignment4Component },
   { path: "assignment5", component: Assignment5Component }
 ];

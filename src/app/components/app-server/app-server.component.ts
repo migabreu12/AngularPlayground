@@ -7,7 +7,6 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // selector: '[app-server∂]', // attribute way
   // selector: '.app-server', // css class way
   templateUrl: './app-server.component.html',
-  styleUrls: ['./app-server.component.scss'],
   // Encapsulation is a feature of angular that let's each component have a unique class
   // for which angular then applies the styles found in the component's styleUrls (or styles).
   // For example, adding color red to this component's scss file will change all text to red within

@@ -92,4 +92,11 @@
     <div *ngFor="let testData of sampleDataServiceData">
         {{ testData.name }} - {{ testData.value }}
     </div>
+
+    <!-- This is an example of using a relative path where it will append the home on top of the current url (which I've set up to work) -->
+    <!-- Clicking it a second time will throw errors, though, because angular will try to append home to the existing home url (which ends up being /home/home) -->
+    <!-- You can use a ./ in the routerLink to also implement a relative path. -->
+    <!-- Another prefix would be ../ which will go up one level in the router. -->
+    <!-- Absolute paths are / as a prefix .-->
+    <a routerLink="home">Reload Page</a>
 </div>
