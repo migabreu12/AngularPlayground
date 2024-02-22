@@ -6,6 +6,8 @@ import { CounterService } from './counter.service';
   providedIn: 'root'
 })
 export class UsersService {
+  @Output() userUpdatedEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   public users:  User[]= [
     {
       name: "Sam",
@@ -20,8 +22,6 @@ export class UsersService {
       isActiveStatus: false
     }
   ];
-
-  @Output() userUpdatedEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private counterService: CounterService) { }
 
