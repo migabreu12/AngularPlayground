@@ -6,13 +6,13 @@
             <ul class="nav nav-tabs">
                 <!-- Here are three examples of using the routerLink directive (including property binding and passing an array to the property bound routerLink) -->
                 <li class="nav-item">
-                    <a class="nav-link" role="presentation" routerLink="/">Angular Playground</a>
+                    <a class="nav-link" role="presentation" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Angular Playground</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  role="presentation" [routerLink]="'/assignment4'">Assignment 4</a>
+                    <a class="nav-link"  role="presentation" [routerLink]="'/assignment4'" routerLinkActive="active">Assignment 4</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" role="presentation" [routerLink]="['/assignment5']">Assignment 5</a>
+                    <a class="nav-link" role="presentation" [routerLink]="['/assignment5']" routerLinkActive="active">Assignment 5</a>
                 </li>
             </ul>
         </div>
