@@ -22,6 +22,7 @@ import { HomeComponentComponent } from './components/home-component/home-compone
 const appRoutes: Routes = [
   { path: "", component: HomeComponentComponent },
   { path: "home", component: HomeComponentComponent },
+  { path: "home/:id", component: HomeComponentComponent },
   { path: "assignment4", component: Assignment4Component },
   { path: "assignment5", component: Assignment5Component }
 ];
