@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-component',
@@ -11,17 +12,25 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
     }
   `]
 })
-export class HomeComponentComponent {
+export class HomeComponentComponent implements OnInit, OnDestroy {
   public parameterPassedInViaPath: { id: number, name: string };
   public parametersChangedAfterReloadingComponent: { id: number, name: string };
+  public paramsSubscription: Subscription;
 
   public constructor(private route: ActivatedRoute, private router: Router) {
+  }
+
+  public ngOnInit(): void {
     this.parameterPassedInViaPath = {
       // Using the route.snapshot is okay for on load data assignment
       id: this.route.snapshot.params["id"],
       name: this.route.snapshot.params["name"]
     }
-    this.route.params
+
+    // Major note, angular will destroy subscriptions when the component is destroyed;
+    // This is like garbage collection in .NET.
+    // Important note though is that you do have to manage subscriptions when creating your own observables.
+    this.paramsSubscription = this.route.params
       .subscribe((params: Params) => {
         this.parametersChangedAfterReloadingComponent = {
           id: params["id"],
@@ -35,5 +44,10 @@ export class HomeComponentComponent {
     // on the component; Not reloading the component is desired functionality to not waste resources.
     // The expected behavior is that the path will update but the displayed parameters will not.
     this.router.navigate(["/home", Math.random(), "nine"]);
+  }
+
+  public ngOnDestroy(): void {
+    // The following code is an example of when you unsubscribe to a subscription manually
+    this.paramsSubscription.unsubscribe();
   }
 }
