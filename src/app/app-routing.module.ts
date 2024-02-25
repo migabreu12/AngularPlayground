@@ -7,7 +7,9 @@ import { ChildRouteExampleComponent } from './components/child-route-example/chi
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponentComponent },
+  // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
+  // If pathMatch is not there, we may not always be rerouted if we are redirecting.
+  { path: "", component: HomeComponentComponent, pathMatch: 'full' },
   {
     path: "home",
     component: HomeComponentComponent,
