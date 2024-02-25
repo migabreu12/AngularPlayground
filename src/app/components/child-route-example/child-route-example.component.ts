@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-child-route-example',
   templateUrl: './child-route-example.component.html',
 })
-export class ChildRouteExampleComponent implements OnInit {
+export class ChildRouteExampleComponent implements OnInit, OnDestroy {
   public parameterPassedInViaPath: { id: number, name: string };
   public parametersChangedAfterReloadingComponent: { id: number, name: string };
   public paramsSubscription: Subscription;
@@ -48,5 +48,10 @@ export class ChildRouteExampleComponent implements OnInit {
           name: params["name"]
         }
       });  
+  }
+
+  public ngOnDestroy(): void {
+    // The following code is an example of when you unsubscribe to a subscription manually
+    this.paramsSubscription.unsubscribe();
   }
 }

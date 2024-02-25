@@ -12,12 +12,7 @@ import { Subscription } from 'rxjs';
     }
   `]
 })
-export class HomeComponentComponent implements OnDestroy {
-  public parameterPassedInViaPath: { id: number, name: string };
-  public parametersChangedAfterReloadingComponent: { id: number, name: string };
-  public paramsSubscription: Subscription;
-  public queryParamsExample: { allowToEdit: boolean };
-
+export class HomeComponentComponent {
   public constructor(private router: Router) {
   }
 
@@ -31,10 +26,5 @@ export class HomeComponentComponent implements OnDestroy {
   // Example of sending query params and fragment via code behind
   public exampleOfPassingQueryParamsAndFragment(id: number): void {
     this.router.navigate(["/home", id, "edit"], {queryParams: { allowToEdit: false }, fragment:"TheFinalCountdown"})
-  }
-
-  public ngOnDestroy(): void {
-    // The following code is an example of when you unsubscribe to a subscription manually
-    this.paramsSubscription.unsubscribe();
   }
 }
