@@ -13,19 +13,7 @@ import { BasicHighlightDirective } from './shared/directives/basic-highlight.dir
 import { BetterHighlightDirective } from './shared/directives/better-highlight.directive';
 import { UnlessDirective } from './shared/directives/unless.directive';
 import { Assignment5Module } from './components/assignment5/assignment5.module';
-import { RouterModule, Routes } from '@angular/router';
-import { Assignment4Component } from './components/assignment4/assignment4.component';
-import { Assignment5Component } from './components/assignment5/assignment5.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
-
-// This can be moved to the app routing module but will keep it here for now
-const appRoutes: Routes = [
-  { path: "", component: HomeComponentComponent },
-  { path: "home", component: HomeComponentComponent },
-  { path: "home/:id/:name", component: HomeComponentComponent },
-  { path: "assignment4", component: Assignment4Component },
-  { path: "assignment5", component: Assignment5Component }
-];
 
 @NgModule({
   declarations: [
@@ -45,7 +33,6 @@ const appRoutes: Routes = [
     CommonModule,
     Assignment4Module,
     Assignment5Module,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
