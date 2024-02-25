@@ -25,6 +25,8 @@ export class HomeComponentComponent {
 
   // Example of sending query params and fragment via code behind
   public exampleOfPassingQueryParamsAndFragment(id: number): void {
-    this.router.navigate(["/home", id, "edit"], {queryParams: { allowToEdit: false }, fragment:"TheFinalCountdown"})
+    // Added the query params handling parameter to navigate to show preserving query params.
+    // Merge will not overwrite new data with the old one but will overwrite the old query params with the new one.
+    this.router.navigate(["/home", id, "edit"], {fragment:"TheFinalCountdown", queryParamsHandling: "preserve"})
   }
 }
