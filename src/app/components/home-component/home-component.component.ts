@@ -35,6 +35,14 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
       };
     });
 
+    this.route.fragment.subscribe((fragment) => {
+      console.log(fragment);
+    });
+
+    // Example of getting the query params and fragments on load (but does not react to changes when redirected to same component)
+    console.log(this.route.snapshot.queryParams);
+    console.log(this.route.snapshot.fragment);
+
     // Major note, angular will destroy subscriptions when the component is destroyed;
     // This is like garbage collection in .NET.
     // Important note though is that you do have to manage subscriptions when creating your own observables.
