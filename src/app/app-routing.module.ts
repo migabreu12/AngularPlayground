@@ -29,6 +29,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  // Exporting the RouterModule here actually exports a configured RouterModule for which can be imported by other modules.
+  // Seems like we could actually chain this kind of behavior (not sure what use it would have though except inheritence and expansion)
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
