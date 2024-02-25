@@ -24,7 +24,8 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.parameterPassedInViaPath = {
       // Using the route.snapshot is okay for on load data assignment
-      id: this.route.snapshot.params["id"],
+      // adding a + in front of a string will cast the string value as a number
+      id: +this.route.snapshot.params["id"],
       name: this.route.snapshot.params["name"]
     }
 
@@ -49,7 +50,7 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
     this.paramsSubscription = this.route.params
       .subscribe((params: Params) => {
         this.parametersChangedAfterReloadingComponent = {
-          id: params["id"],
+          id: +params["id"],
           name: params["name"]
         }
       });
