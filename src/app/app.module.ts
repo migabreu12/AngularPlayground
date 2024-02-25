@@ -14,6 +14,7 @@ import { BetterHighlightDirective } from './shared/directives/better-highlight.d
 import { UnlessDirective } from './shared/directives/unless.directive';
 import { Assignment5Module } from './components/assignment5/assignment5.module';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
+import { ChildRouteExampleComponent } from './components/child-route-example/child-route-example.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponentComponent } from './components/home-component/home-compone
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    HomeComponentComponent
+    HomeComponentComponent,
+    ChildRouteExampleComponent
   ],
   imports: [
     BrowserModule,

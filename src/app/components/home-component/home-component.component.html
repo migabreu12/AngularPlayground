@@ -1,11 +1,5 @@
 <app-warning-banner></app-warning-banner>
 <app-success-banner></app-success-banner>
-<hr />
-Passed in parameter is: {{ parameterPassedInViaPath.id }} - {{ parameterPassedInViaPath.name }}
-<br />
-Reloaded component parameters example: {{ parametersChangedAfterReloadingComponent.id }} - {{ parametersChangedAfterReloadingComponent.name }}
-<hr />
-Reloaded component with query params example : {{ queryParamsExample.allowToEdit }}
 <app-server>
     <p #contentChildExample>Testing NG Content Element</p>
 </app-server>
@@ -20,5 +14,7 @@ Reloaded component with query params example : {{ queryParamsExample.allowToEdit
     >
     Reload with query params
 </button>
-<!-- Example of passing in query and fragmet via ts-->
+<!-- Example of passing in query and fragmet via ts -->
 <button class="btn btn-primary" (click)="exampleOfPassingQueryParamsAndFragment(4)">Using the code behind to pass in query params and fragment</button>
+<!-- Currently this will load a second home component due to the child route -->
+<router-outlet></router-outlet>
