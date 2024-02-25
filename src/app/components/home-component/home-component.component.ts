@@ -16,6 +16,7 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
   public parameterPassedInViaPath: { id: number, name: string };
   public parametersChangedAfterReloadingComponent: { id: number, name: string };
   public paramsSubscription: Subscription;
+  public queryParamsExample: { allowToEdit: boolean };
 
   public constructor(private route: ActivatedRoute, private router: Router) {
   }
@@ -26,6 +27,13 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
       id: this.route.snapshot.params["id"],
       name: this.route.snapshot.params["name"]
     }
+
+    // Example of subscribing to the value on init without giving the subscription it's own property.
+    this.route.queryParams.subscribe((queryParams) => {
+      this.queryParamsExample = {
+        allowToEdit: queryParams["allowToEdit"]
+      };
+    });
 
     // Major note, angular will destroy subscriptions when the component is destroyed;
     // This is like garbage collection in .NET.
@@ -44,6 +52,11 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
     // on the component; Not reloading the component is desired functionality to not waste resources.
     // The expected behavior is that the path will update but the displayed parameters will not.
     this.router.navigate(["/home", Math.random(), "nine"]);
+  }
+
+  // Example of sending query params and fragment via code behind
+  public exampleOfPassingQueryParamsAndFragment(id: number): void {
+    this.router.navigate(["/home", id, "edit"], {queryParams: { allowToEdit: false }, fragment:"TheFinalCountdown"})
   }
 
   public ngOnDestroy(): void {

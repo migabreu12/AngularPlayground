@@ -5,7 +5,20 @@ Passed in parameter is: {{ parameterPassedInViaPath.id }} - {{ parameterPassedIn
 <br />
 Reloaded component parameters example: {{ parametersChangedAfterReloadingComponent.id }} - {{ parametersChangedAfterReloadingComponent.name }}
 <hr />
+Reloaded component with query params example : {{ queryParamsExample.allowToEdit }}
 <app-server>
     <p #contentChildExample>Testing NG Content Element</p>
 </app-server>
 <button class="btn btn-primary" (click)="exampleOfNotReloadingComponentWithParameters()">Reload Page with New Parameters</button>
+<!-- Example of HTML version of passing query and fragment to the url --> 
+<!-- The loading portion (of which you can only add one) add's the hash (#) to the url for quick html navigations -->
+<button
+    class="btn btn-primary"
+    [routerLink]="['/home', 3, 'edit']"
+    [queryParams]="{ allowToEdit: true }"
+    [fragment]="'Loading'"
+    >
+    Reload with query params
+</button>
+<!-- Example of passing in query and fragmet via ts-->
+<button class="btn btn-primary" (click)="exampleOfPassingQueryParamsAndFragment(4)">Using the code behind to pass in query params and fragment</button>
