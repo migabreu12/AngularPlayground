@@ -15,6 +15,7 @@ import { UnlessDirective } from './shared/directives/unless.directive';
 import { Assignment5Module } from './components/assignment5/assignment5.module';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import { ChildRouteExampleComponent } from './components/child-route-example/child-route-example.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ChildRouteExampleComponent } from './components/child-route-example/chi
     BetterHighlightDirective,
     UnlessDirective,
     HomeComponentComponent,
-    ChildRouteExampleComponent
+    ChildRouteExampleComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

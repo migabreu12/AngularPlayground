@@ -4,6 +4,7 @@ import { HomeComponentComponent } from './components/home-component/home-compone
 import { Assignment4Component } from './components/assignment4/assignment4.component';
 import { Assignment5Component } from './components/assignment5/assignment5.component';
 import { ChildRouteExampleComponent } from './components/child-route-example/child-route-example.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent },
@@ -18,6 +19,10 @@ const routes: Routes = [
   },
   { path: "assignment4", component: Assignment4Component },
   { path: "assignment5", component: Assignment5Component },
+  { path: "not-found", component: PageNotFoundComponent },
+  // Routes get parsed from top to bottom so ensure that the wild card route is the very last.
+  // If the wild card is not the very last in the routes list then we will always get the not found page
+  { path: "**", redirectTo: "/not-found" }
 ];
 
 @NgModule({
