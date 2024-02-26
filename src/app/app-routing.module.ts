@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { canActivateChildGuard } from './shared/services/auth-guard.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
+import { canDeactivateGuard } from './shared/services/can-deactivate-guard.service';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -30,7 +31,7 @@ const routes: Routes = [
     canActivateChild: [ canActivateChildGuard ],
     component: AuthTestComponent,
     children: [
-      { path: "loggedIn", component: LoggedInComponent }
+      { path: "loggedIn", component: LoggedInComponent, canDeactivate: [canDeactivateGuard] }
     ]
   },
   // Routes get parsed from top to bottom so ensure that the wild card route is the very last.
