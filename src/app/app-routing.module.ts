@@ -7,6 +7,7 @@ import { ChildRouteExampleComponent } from './components/child-route-example/chi
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { canActivateChildGuard } from './shared/services/auth-guard.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
+import { AuthTestComponent } from './components/auth-test/auth-test.component';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "not-found", component: PageNotFoundComponent },
   {
     path: "authTest",
-    canActivate: [ canActivateChildGuard ],
+    canActivateChild: [ canActivateChildGuard ],
+    component: AuthTestComponent,
     children: [
       { path: "loggedIn", component: LoggedInComponent }
     ]

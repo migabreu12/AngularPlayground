@@ -18,6 +18,7 @@ import { ChildRouteExampleComponent } from './components/child-route-example/chi
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthService } from './shared/services/auth.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
+import { AuthTestComponent } from './components/auth-test/auth-test.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoggedInComponent } from './components/logged-in/logged-in.component';
     HomeComponentComponent,
     ChildRouteExampleComponent,
     PageNotFoundComponent,
-    LoggedInComponent
+    LoggedInComponent,
+    AuthTestComponent
   ],
   imports: [
     BrowserModule,
