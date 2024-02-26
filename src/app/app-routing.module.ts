@@ -25,7 +25,13 @@ const routes: Routes = [
   },
   { path: "assignment4", component: Assignment4Component },
   { path: "assignment5", component: Assignment5Component },
-  { path: "not-found", component: PageNotFoundComponent },
+  {
+    path: "not-found",
+    component: PageNotFoundComponent,
+    data: {
+      message: "Example of Data passed in through router"
+    }
+  },
   {
     path: "authTest",
     canActivateChild: [ canActivateChildGuard ],
