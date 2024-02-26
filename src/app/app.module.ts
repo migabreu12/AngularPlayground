@@ -16,6 +16,8 @@ import { Assignment5Module } from './components/assignment5/assignment5.module';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import { ChildRouteExampleComponent } from './components/child-route-example/child-route-example.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthService } from './shared/services/auth.service';
+import { LoggedInComponent } from './components/logged-in/logged-in.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     UnlessDirective,
     HomeComponentComponent,
     ChildRouteExampleComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoggedInComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     Assignment4Module,
     Assignment5Module,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

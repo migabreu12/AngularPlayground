@@ -1,4 +1,5 @@
 import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoggingService } from 'src/app/shared/services/logging.service';
 import { SampleDataService } from 'src/app/shared/services/sample-data.service';
 
@@ -72,8 +73,13 @@ export class AppServerComponent implements OnInit {
   public localReferenceValue: string = "";
   public displayStructuralDirective = false;
   public sampleDataServiceData: { name: string, value: number }[] = [];
+  public loggedInState: boolean;
 
-  public constructor(private loggingService: LoggingService, private sampleDataService: SampleDataService) {
+  public constructor(
+      private loggingService: LoggingService,
+      private sampleDataService: SampleDataService,
+      private authService: AuthService
+    ) {
   }
 
   public ngOnInit() {
@@ -84,6 +90,13 @@ export class AppServerComponent implements OnInit {
     console.log(this.contentChildExample.nativeElement.innerText);
 
     this.sampleDataServiceData = this.sampleDataService.getTestData();
+
+    this.authService.isAuthenticated().then((loggedInState) => {
+      this.loggedInState = loggedInState;
+    });
+    this.authService.loggedInStateObservable.subscribe((loggedInState) => {
+      this.loggedInState = loggedInState;
+    })
   }
 
   public resetUsername(): void {
@@ -130,5 +143,13 @@ export class AppServerComponent implements OnInit {
     // The proper way to get data updates is via emits rather than local variables assigned to the service property via reference.
     // We can more easily track changes through emitters and setter from a service rather than local variable changes.
     // Defensive programming is the name of the game.
+  }
+
+  public logIn() {
+    this.authService.logIn();
+  }
+
+  public logOut() {
+    this.authService.logOut();
   }
 }
