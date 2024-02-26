@@ -9,14 +9,7 @@ export const canActivateGuard: CanActivateFn = (route: ActivatedRouteSnapshot, s
   const authService = inject(AuthService);
   const router = inject(Router);
   return authService.isAuthenticated().then((isAuthenticated) => {
-    if(isAuthenticated) {
-      return true;
-    } else {
-      router.navigate(["/"]);
-      // To solve a ts code issue but this must be fixed or implemented a proper way. I'm guessing the navigate
-      // is only done as part of this lesson and will be resolved by the end of the routing module.
-      return false;
-    }
+    return isAuthenticated;
   });
 }
 
