@@ -9,6 +9,7 @@ import { canActivateChildGuard } from './shared/services/auth-guard.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
 import { canDeactivateGuard } from './shared/services/can-deactivate-guard.service';
+import { AuthResolverService } from './shared/services/auth-resolver.service';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -36,6 +37,9 @@ const routes: Routes = [
     path: "authTest",
     canActivateChild: [ canActivateChildGuard ],
     component: AuthTestComponent,
+    resolve: {
+      isAuthenticated: AuthResolverService
+    },
     children: [
       { path: "loggedIn", component: LoggedInComponent, canDeactivate: [canDeactivateGuard] }
     ]

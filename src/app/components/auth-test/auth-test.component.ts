@@ -16,8 +16,14 @@ export class AuthTestComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   public ngOnInit(): void {
-    this.authService.isAuthenticated().then((loggedInState) => {
-      this.loggedInState = loggedInState;
+    // Example of using a promise but will forego this implementation for a resolver approach
+    // this.authService.isAuthenticated().then((loggedInState) => {
+    //   this.loggedInState = loggedInState;
+    // });
+    
+    // This is the resolver approach
+    this.route.data.subscribe(data => {
+      this.loggedInState = data["isAuthenticated"];
     });
 
     this.authService.loggedInStateObservable.subscribe((loggedInState) => {
