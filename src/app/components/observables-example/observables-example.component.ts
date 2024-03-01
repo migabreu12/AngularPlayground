@@ -21,12 +21,21 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
+
+        if(count > 3) {
+          // This error message will be shown in the console when an error occurs and the subscription will also end
+          observer.error("Count is greater than 3!");
+        }
+
         count++;
       }, 1000);
     });
 
+    // .subscribe is deprecated so an alternative implementation is needed.
     this.subscription = customIntervalObservable.subscribe(data => {
       console.log(data);
+    }, error => {
+      console.log(error);
     });
   }
 
