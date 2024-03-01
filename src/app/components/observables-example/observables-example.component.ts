@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription, interval } from 'rxjs';
+import { Observable, Subscription, filter, interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-observables-example',
@@ -40,7 +40,21 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
     });
 
     // .subscribe is deprecated so an alternative implementation is needed.
-    this.subscription = customIntervalObservable.subscribe(data => {
+    this.subscription = customIntervalObservable
+    // Data can be transformed like DTO here because we can also return a new type of data.
+    // Operators work like a queue where the end of the queue is the subscribe.
+    .pipe(
+      // Filter takes in a conditional argument to see if we pass the data along or not
+      // True == pass, False == drop
+      filter((data: number) => {
+        return data % 2 == 0;
+      }),
+      // Map is an operator on observables that lets you transform the data before it reaches the observable.
+      map((data: number) => {
+        return "Round: " + ++data;
+      })
+    )
+    .subscribe(data => {
       console.log(data);
     }, error => {
       alert(error);
