@@ -9,6 +9,7 @@ import { SubjectExampleService } from 'src/app/shared/services/subject-example.s
 })
 export class ObservablesExampleComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
+  private activatedSubscripton: Subscription;
   public activated = false;
 
   public constructor(private subjectExampleService: SubjectExampleService) {}
@@ -71,20 +72,22 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
 
 
     // Here is the example for subjects
-    // Using a subject allows for also using pipes (since a subject is a different kind of observable)
-    this.subjectExampleService.activatedEmitter.subscribe(data => {
+    // Using a subject allows for also using pipes (since a subject is a different kind of observable).
+    this.activatedSubscripton = this.subjectExampleService.activatedEmitter.subscribe(data => {
       this.activated = data;
     })
   }
 
   public onActivated() {
     // This next method triggers emitting a value from the observable for which subscriptions can react.
-    // The purpose of a subject is to be able to emit values manually
+    // The purpose of a subject is to be able to emit values manually.
+    // Subjects effectively replace emitters when we're communicating cross components. We also need to unsubscribe to them.
     this.subjectExampleService.activatedEmitter.next(true);
   }
 
   public ngOnDestroy(): void {
     // Not all observables need an unsubscription, angular observables provided by angular automatically unsubscribe (they're managed by angular)
     this.subscription.unsubscribe();
+    this.activatedSubscripton.unsubscribe();
   }
 }
