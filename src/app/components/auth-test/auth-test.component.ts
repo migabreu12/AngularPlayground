@@ -24,6 +24,8 @@ export class AuthTestComponent implements OnInit {
     // This is the resolver approach
     // Observables have three states in which our code can be executed:
     // Handle Data, Handle Error, Handle Completion (when something clearly ends like http request)
+    // When subscribing, the first paramter of the subscribe can be an anonymous function that
+    // handles the data of the observable.
     this.route.data.subscribe(data => {
       this.loggedInState = data["isAuthenticated"];
     });

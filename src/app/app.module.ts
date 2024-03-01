@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AuthService } from './shared/services/auth.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
+import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthTestComponent } from './components/auth-test/auth-test.component';
     ChildRouteExampleComponent,
     PageNotFoundComponent,
     LoggedInComponent,
-    AuthTestComponent
+    AuthTestComponent,
+    ObservablesExampleComponent
   ],
   imports: [
     BrowserModule,

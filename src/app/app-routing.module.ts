@@ -10,6 +10,7 @@ import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
 import { canDeactivateGuard } from './shared/services/can-deactivate-guard.service';
 import { AuthResolverService } from './shared/services/auth-resolver.service';
+import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -43,6 +44,10 @@ const routes: Routes = [
     children: [
       { path: "loggedIn", component: LoggedInComponent, canDeactivate: [canDeactivateGuard] }
     ]
+  },
+  {
+    path: "observablesExample",
+    component: ObservablesExampleComponent
   },
   // Routes get parsed from top to bottom so ensure that the wild card route is the very last.
   // If the wild card is not the very last in the routes list then we will always get the not found page
