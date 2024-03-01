@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
+import { Observable, Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-observables-example',
@@ -10,8 +10,23 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   public ngOnInit(): void {
-    this.subscription = interval(1000).subscribe(count => {
-      console.log(count);
+    // this.subscription = interval(1000).subscribe(count => {
+    //   console.log(count);
+    // });
+
+    // Here's an example of a custom observable (the create method is deprecated so
+    // here is the new way of creating an observabler)
+    // Next emits whatever you pass in so that subscriptions can catch the value
+    const customIntervalObservable = new Observable(observer => {
+      let count = 0;
+      setInterval(() => {
+        observer.next(count);
+        count++;
+      }, 1000);
+    });
+
+    this.subscription = customIntervalObservable.subscribe(data => {
+      console.log(data);
     });
   }
 
