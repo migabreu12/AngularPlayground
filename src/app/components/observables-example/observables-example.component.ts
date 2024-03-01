@@ -16,7 +16,7 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    // Not all observables need an unsubscription
+    // Not all observables need an unsubscription, angular observables provided by angular automatically unsubscribe (they're managed by angular)
     this.subscription.unsubscribe();
   }
 }
