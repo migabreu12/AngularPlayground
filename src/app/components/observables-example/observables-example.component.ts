@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, filter, interval, map } from 'rxjs';
+import { SubjectExampleService } from 'src/app/shared/services/subject-example.service';
 
 @Component({
   selector: 'app-observables-example',
@@ -8,6 +9,9 @@ import { Observable, Subscription, filter, interval, map } from 'rxjs';
 })
 export class ObservablesExampleComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
+  public activated = false;
+
+  public constructor(private subjectExampleService: SubjectExampleService) {}
 
   public ngOnInit(): void {
     // this.subscription = interval(1000).subscribe(count => {
@@ -64,6 +68,19 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
       // We still want to unsubscribe, though, in case the observable does not complete.
       console.log("Observable completed");
     });
+
+
+    // Here is the example for subjects
+    // Using a subject allows for also using pipes (since a subject is a different kind of observable)
+    this.subjectExampleService.activatedEmitter.subscribe(data => {
+      this.activated = data;
+    })
+  }
+
+  public onActivated() {
+    // This next method triggers emitting a value from the observable for which subscriptions can react.
+    // The purpose of a subject is to be able to emit values manually
+    this.subjectExampleService.activatedEmitter.next(true);
   }
 
   public ngOnDestroy(): void {
