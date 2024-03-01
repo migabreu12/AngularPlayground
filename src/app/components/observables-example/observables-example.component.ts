@@ -22,8 +22,16 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
       setInterval(() => {
         observer.next(count);
 
+        // Example to trigger complete
+        if(count == 2) {
+          observer.complete();
+        }
+
+        // Example to trigger error
+        // The complete step does not get triggered, though, on error
         if(count > 3) {
-          // This error message will be shown in the console when an error occurs and the subscription will also end
+          // This error message will be shown in the console when an error occurs and the subscription will also end.
+          // An error cancels the observer, it does not complete it.
           observer.error("Count is greater than 3!");
         }
 
@@ -35,7 +43,12 @@ export class ObservablesExampleComponent implements OnInit, OnDestroy {
     this.subscription = customIntervalObservable.subscribe(data => {
       console.log(data);
     }, error => {
+      alert(error);
       console.log(error);
+    }, () => {
+      // Completing an observer means it will be done so angular removes subscriptions
+      // We still want to unsubscribe, though, in case the observable does not complete.
+      console.log("Observable completed");
     });
   }
 
