@@ -20,6 +20,7 @@ import { AuthService } from './shared/services/auth.service';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
 import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
+import { FormsExampleComponent } from './components/forms-example/forms-example.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ObservablesExampleComponent } from './components/observables-example/ob
     PageNotFoundComponent,
     LoggedInComponent,
     AuthTestComponent,
-    ObservablesExampleComponent
+    ObservablesExampleComponent,
+    FormsExampleComponent
   ],
   imports: [
     BrowserModule,
