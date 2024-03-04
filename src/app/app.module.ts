@@ -21,6 +21,7 @@ import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { AuthTestComponent } from './components/auth-test/auth-test.component';
 import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 import { FormsExampleComponent } from './components/forms-example/forms-example.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FormsExampleComponent } from './components/forms-example/forms-example.
     LoggedInComponent,
     AuthTestComponent,
     ObservablesExampleComponent,
-    FormsExampleComponent
+    FormsExampleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

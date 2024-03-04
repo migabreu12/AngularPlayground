@@ -1,33 +1,6 @@
 <div class="container">
-    <h3> I'm in the AppComponent!</h3>
-    <hr>
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <ul class="nav nav-tabs">
-                <!-- Here are three examples of using the routerLink directive (including property binding and passing an array to the property bound routerLink) -->
-                <li class="nav-item">
-                    <a class="nav-link" role="presentation" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Angular Playground</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  role="presentation" [routerLink]="'/assignment4'" routerLinkActive="active">Assignment 4</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" role="presentation" [routerLink]="['/assignment5']" routerLinkActive="active">Assignment 5</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" role="presentation" [routerLink]="['/authTest']" routerLinkActive="active">Auth Test</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" role="presentation" [routerLink]="['/observablesExample']" routerLinkActive="active">Observables Example</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" role="presentation" [routerLink]="['/formsExample']">Forms Example</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <app-header></app-header>
     <router-outlet></router-outlet>
-
     <!-- <div app-server></div> 'this uses the attribute/directive way' --> 
     <!--<div class="app-server"></div> 'this uses the class way'-->
     <!-- Outputting data -->
