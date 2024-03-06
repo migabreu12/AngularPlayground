@@ -12,6 +12,7 @@ import { canDeactivateGuard } from './shared/services/can-deactivate-guard.servi
 import { AuthResolverService } from './shared/services/auth-resolver.service';
 import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 import { FormsExampleComponent } from './components/forms-example/forms-example.component';
+import { Assignment6Component } from './components/assignment6/assignment6.component';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: "formsExample",
     component: FormsExampleComponent
+  },
+  {
+    path: "assignment6",
+    component: Assignment6Component
   },
   // Routes get parsed from top to bottom so ensure that the wild card route is the very last.
   // If the wild card is not the very last in the routes list then we will always get the not found page

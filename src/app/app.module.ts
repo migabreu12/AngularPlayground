@@ -22,6 +22,7 @@ import { AuthTestComponent } from './components/auth-test/auth-test.component';
 import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 import { FormsExampleComponent } from './components/forms-example/forms-example.component';
 import { HeaderComponent } from './components/header/header.component';
+import { Assignment6Component } from './components/assignment6/assignment6.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HeaderComponent } from './components/header/header.component';
     AuthTestComponent,
     ObservablesExampleComponent,
     FormsExampleComponent,
-    HeaderComponent
+    HeaderComponent,
+    Assignment6Component
   ],
   imports: [
     BrowserModule,
