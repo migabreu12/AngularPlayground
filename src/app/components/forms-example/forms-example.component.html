@@ -27,6 +27,13 @@
                 required
             >
         </div>
+        <button
+            class="btn btn-default"
+            type="button"
+            (click)="suggestUserName()"
+        >
+            Suggest a Username
+        </button>
         <div class="form-group">
             <label for="email">Mail</label>
             <input
@@ -86,4 +93,10 @@
         type="submit"
         [disabled]="!f.valid"
     >Submit</button>
+    <button
+        class="btn btn-default"
+        (click)="setDefaultValues()"
+    >
+        Set Default Values
+    </button>
 </form>
