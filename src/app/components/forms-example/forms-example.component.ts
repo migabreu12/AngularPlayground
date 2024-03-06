@@ -61,6 +61,10 @@ export class FormsExampleComponent {
     this.submitted = false;
   }
 
+  public resetForm() {
+    this.exampleForm.reset();
+  }
+
   public onSubmit() {
     this.submitted = true;
     this.user = {
