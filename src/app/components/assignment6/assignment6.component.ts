@@ -10,6 +10,6 @@ export class Assignment6Component {
   @ViewChild("form") form: NgForm;
 
   public submit() {
-    console.log("form");
+    console.log(this.form);
   }
 }

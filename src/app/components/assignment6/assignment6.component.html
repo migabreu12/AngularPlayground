@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="text" class="form-control" name="password" ngModel #password="ngModel" required>
+                <input type="password" class="form-control" name="password" ngModel #password="ngModel" required>
                 <p class="warning" *ngIf="!password.valid && password.touched">Must Enter Password</p>
             </div>
             <button class="btn btn-primary" type="submit" [disabled]="!form.valid || !form.touched">Submit</button>
