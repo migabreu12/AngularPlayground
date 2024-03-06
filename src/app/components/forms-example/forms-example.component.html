@@ -2,6 +2,11 @@
 <!-- For the template approach, must set reference name to ngForm -->
 <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
 <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <!-- adding the directive ngModel (without property or two way binding) allows angular to 
+        create an object based off the input field; In turn, the ngModel that's created can then
+        be accessed. -->
+    <!-- The angular description of NgModel on a form element is:
+        Creates a FormControl instance from a domain model and binds it to a form control element. -->
     <input
         type="text"
         id="username"
@@ -36,6 +41,15 @@
         <option value="pet">Your first Pet?</option>
         <option value="teacher">Your first teacher?</option>
     </select>
+    <div class="form-group">
+        <textarea
+            name="questionAnswer"
+            rows="3"
+            [(ngModel)]="answer"
+        ></textarea>
+    </div>
+    <!-- Example of two way binding to the answer (which also get's submitted when clicking submit button) -->
+    <p>Your reply: {{ answer }}</p>
     <button
         class="btn btn-primary"
         type="submit"
