@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AppServerComponent } from './components/app-server/app-server.component';
 import { WarningBannerComponent } from './components/warning-banner/warning-banner.component';
 import { SuccessBannerComponent } from './components/success-banner/success-banner.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Assignment4Module } from './components/assignment4/assignment4.module';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
@@ -54,6 +54,7 @@ import { ReactiveFormExampleComponent } from './components/forms-example/reactiv
     CommonModule,
     Assignment4Module,
     Assignment5Module,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
