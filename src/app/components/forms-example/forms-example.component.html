@@ -1,119 +1,13 @@
-<!-- Template driven approach means you should prioritize making changes and decisions in the template -->
-<!-- For the template approach, must set reference name to ngForm -->
-<!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
-<form (ngSubmit)="onSubmit()" #f="ngForm">
-    <!-- ngModelGroup="" gives the grouped data it's own object in the value section of the form data -->
-    <!-- #userData="ngModelGroup" allows the template to have access to the form group's data from
-        within the template (which then allows the template to handle logical decisions based off the 
-        user data's form data) -->
-    <div
-        id="user-data"
-        ngModelGroup="userData"
-        #userData="ngModelGroup"
-    >   
-        <div class="form-group">
-            <label for="username">Username</label>
-            <!-- Adding the directive ngModel (without property or two way binding) allows angular to 
-            create an object based off the input field; In turn, the ngModel that's created can then
-            be accessed; Adding ngModel also makes it a form control object -->
-            <!-- The angular description of NgModel on a form element is:
-                Creates a FormControl instance from a domain model and binds it to a form control element. -->
-            <input
-                type="text"
-                id="username"
-                class="form-control"
-                ngModel
-                name="username"
-                required
-            >
-        </div>
-        <button
-            class="btn btn-default"
-            type="button"
-            (click)="suggestUserName()"
-        >
-            Suggest a Username
-        </button>
-        <div class="form-group">
-            <label for="email">Mail</label>
-            <input
-                type="email"
-                id="email"
-                class="form-control"
-                ngModel
-                name="email"
-                required
-                email
-                #email="ngModel"
-            >
-            <span
-                class="help-block"
-                *ngIf="!email.valid && email.touched"
-            >
-                Please enter a valid email!"
-            </span>
-        </div>
-    </div>
-    <!-- Template driven approach for handling form logical statements -->
-    <p *ngIf="!userData.valid && userData.touched">User Data is Invalid!</p>
-    <!-- Property binding (1 -way) example -->
-    <select
-        name="secret"
-        id="secret"
-        class="form-control"
-        [ngModel]="defaultQuestion"
-        name="secret"
-    >
-        <option value="pet">Your first Pet?</option>
-        <option value="teacher">Your first teacher?</option>
-    </select>
-    <div class="form-group">
-        <textarea
-            name="questionAnswer"
-            rows="3"
-            [(ngModel)]="answer"
-        ></textarea>
-    </div>
-    <!-- Example of two way binding to the answer (which also get's submitted when clicking submit button) -->
-    <p>Your reply: {{ answer }}</p>
-    <div class="radio" *ngFor="let gender of genders">
-        <label>
-            <input
-                type="radio"
-                name="gender"
-                ngModel
-                [value]="gender"
-                required
-            >
-            {{ gender }}
-        </label>
-    </div>
-    <button
-        class="btn btn-primary"
-        type="submit"
-        [disabled]="!f.valid"
-    >Submit</button>
-    <button
-        class="btn btn-default"
-        (click)="setDefaultValues()"
-    >
-        Set Default Values
-    </button>
-    <button
-        class="btn btn-default"
-        (click)="resetForm()"
-    >
-        Reset Form
-    </button>
-</form>
-<hr>
-<div class="row" *ngIf="submitted">
-    <div class="col-xs-12">
-        <h3>Your Data</h3>
-        <p>Username: {{ this.user.username }}</p>
-        <p>Mail: {{ this.user.email }}</p>
-        <p>Secret Question: {{ this.user.secretQuestion }}</p>
-        <p>Answer: {{ this.user.answer }}</p>
-        <p>Gender: {{ this.user.gender }}</p>
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" role="presentation" [routerLink]="['template-driven-form-example']" routerLinkActive="active">Template Driven Form</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" role="presentation" [routerLink]="['reactive-form']" routerLinkActive="active">Reactive Form</a>
+            </li>
+        </ul>
     </div>
 </div>
+<router-outlet></router-outlet>

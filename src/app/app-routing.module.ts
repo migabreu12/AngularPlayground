@@ -13,6 +13,7 @@ import { AuthResolverService } from './shared/services/auth-resolver.service';
 import { ObservablesExampleComponent } from './components/observables-example/observables-example.component';
 import { FormsExampleComponent } from './components/forms-example/forms-example.component';
 import { Assignment6Component } from './components/assignment6/assignment6.component';
+import { TemplateDrivenFormExampleComponent } from './components/forms-example/template-driven-form-example/template-driven-form-example.component';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -53,7 +54,13 @@ const routes: Routes = [
   },
   {
     path: "formsExample",
-    component: FormsExampleComponent
+    component: FormsExampleComponent,
+    children: [
+      {
+        path: "template-driven-form-example",
+        component: TemplateDrivenFormExampleComponent
+      }
+    ]
   },
   {
     path: "assignment6",
