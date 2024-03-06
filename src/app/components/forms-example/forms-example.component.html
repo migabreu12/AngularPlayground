@@ -23,12 +23,14 @@
     <span
         class="help-block"
         *ngIf="!email.valid && email.touched"
-    >Please enter a valid email!"</span>
+    >
+        Please enter a valid email!"
+    </span>
     <select
         name="secret"
         id="secret"
         class="form-control"
-        ngModel
+        [ngModel]="defaultQuestion"
         name="secret"
     >
         <option value="pet">Your first Pet?</option>
