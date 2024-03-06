@@ -24,6 +24,7 @@ import { FormsExampleComponent } from './components/forms-example/forms-example.
 import { HeaderComponent } from './components/header/header.component';
 import { Assignment6Component } from './components/assignment6/assignment6.component';
 import { TemplateDrivenFormExampleComponent } from './components/forms-example/template-driven-form-example/template-driven-form-example.component';
+import { ReactiveFormExampleComponent } from './components/forms-example/reactive-form-example/reactive-form-example.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TemplateDrivenFormExampleComponent } from './components/forms-example/t
     FormsExampleComponent,
     HeaderComponent,
     Assignment6Component,
-    TemplateDrivenFormExampleComponent
+    TemplateDrivenFormExampleComponent,
+    ReactiveFormExampleComponent
   ],
   imports: [
     BrowserModule,
