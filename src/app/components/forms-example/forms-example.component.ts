@@ -13,7 +13,15 @@ export class FormsExampleComponent {
   public genders = [
     "male",
     "female"
-  ]
+  ];
+  public user = {
+    username: "",
+    email: "",
+    secretQuestion: "",
+    answer: "",
+    gender: ""
+  };
+  public submitted = false;
 
   // public onSubmit(form: NgForm) {
   //   console.log(form);
@@ -50,9 +58,17 @@ export class FormsExampleComponent {
       questionAnswer: "",
       gender: "male"
     });
+    this.submitted = false;
   }
 
   public onSubmit() {
-    console.log(this.exampleForm);
+    this.submitted = true;
+    this.user = {
+      username: this.exampleForm.form.value.userData.username,
+      email: this.exampleForm.form.value.userData.email,
+      secretQuestion: this.exampleForm.form.value.secret,
+      answer: this.exampleForm.form.value.questionAnswer,
+      gender: this.exampleForm.form.value.gender
+    }
   }
 }
