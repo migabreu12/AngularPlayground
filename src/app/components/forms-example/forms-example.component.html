@@ -15,7 +15,7 @@
             <label for="username">Username</label>
             <!-- Adding the directive ngModel (without property or two way binding) allows angular to 
             create an object based off the input field; In turn, the ngModel that's created can then
-            be accessed. -->
+            be accessed; Adding ngModel also makes it a form control object -->
             <!-- The angular description of NgModel on a form element is:
                 Creates a FormControl instance from a domain model and binds it to a form control element. -->
             <input
@@ -69,6 +69,18 @@
     </div>
     <!-- Example of two way binding to the answer (which also get's submitted when clicking submit button) -->
     <p>Your reply: {{ answer }}</p>
+    <div class="radio" *ngFor="let gender of genders">
+        <label>
+            <input
+                type="radio"
+                name="gender"
+                ngModel
+                [value]="gender"
+                required
+            >
+            {{ gender }}
+        </label>
+    </div>
     <button
         class="btn btn-primary"
         type="submit"

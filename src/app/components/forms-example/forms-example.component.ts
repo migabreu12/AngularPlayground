@@ -10,6 +10,10 @@ export class FormsExampleComponent {
   @ViewChild('f') form: NgForm
   public defaultQuestion = "pet";
   public answer = "";
+  public genders = [
+    "male",
+    "female"
+  ]
 
   // public onSubmit(form: NgForm) {
   //   console.log(form);
