@@ -2,7 +2,7 @@
 <!-- For the template approach, must set reference name to ngForm -->
 <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
 <form (ngSubmit)="onSubmit()" #f="ngForm">
-    <!-- adding the directive ngModel (without property or two way binding) allows angular to 
+    <!-- Adding the directive ngModel (without property or two way binding) allows angular to 
         create an object based off the input field; In turn, the ngModel that's created can then
         be accessed. -->
     <!-- The angular description of NgModel on a form element is:
@@ -31,6 +31,7 @@
     >
         Please enter a valid email!"
     </span>
+    <!-- Property binding (1 -way) example -->
     <select
         name="secret"
         id="secret"
