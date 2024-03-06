@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./reactive-form-example.component.scss']
 })
 export class ReactiveFormExampleComponent {
-
+  public genders = ['male', 'female'];
 }
