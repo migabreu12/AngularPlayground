@@ -1,4 +1,6 @@
-<form>
+<!-- Template driven approach means you should prioritize making changes and decisions in the template -->
+<!-- For the template approach, must set reference name to ngForm -->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <input
         type="text"
         id="username"
@@ -23,4 +25,5 @@
         <option value="pet">Your first Pet?</option>
         <option value="teacher">Your first teacher?</option>
     </select>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>
