@@ -2,35 +2,41 @@
 <!-- For the template approach, must set reference name to ngForm -->
 <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
 <form (ngSubmit)="onSubmit()" #f="ngForm">
-    <!-- Adding the directive ngModel (without property or two way binding) allows angular to 
+    <div class="form-group">
+        <label for="username">Username</label>
+        <!-- Adding the directive ngModel (without property or two way binding) allows angular to 
         create an object based off the input field; In turn, the ngModel that's created can then
         be accessed. -->
-    <!-- The angular description of NgModel on a form element is:
-        Creates a FormControl instance from a domain model and binds it to a form control element. -->
-    <input
-        type="text"
-        id="username"
-        class="form-control"
-        ngModel
-        name="username"
-        required
-    >
-    <input
-        type="email"
-        id="email"
-        class="form-control"
-        ngModel
-        name="email"
-        required
-        email
-        #email="ngModel"
-    >
-    <span
-        class="help-block"
-        *ngIf="!email.valid && email.touched"
-    >
-        Please enter a valid email!"
-    </span>
+        <!-- The angular description of NgModel on a form element is:
+            Creates a FormControl instance from a domain model and binds it to a form control element. -->
+        <input
+            type="text"
+            id="username"
+            class="form-control"
+            ngModel
+            name="username"
+            required
+        >
+    </div>
+    <div class="form-group">
+        <label for="email">Mail</label>
+        <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+        >
+        <span
+            class="help-block"
+            *ngIf="!email.valid && email.touched"
+        >
+            Please enter a valid email!"
+        </span>
+    </div>
     <!-- Property binding (1 -way) example -->
     <select
         name="secret"
