@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-forms-example',
-  templateUrl: './forms-example.component.html'
+  templateUrl: './forms-example.component.html',
+  styleUrls: ['forms-example.component.scss']
 })
 export class FormsExampleComponent {
   @ViewChild('f') form: NgForm
