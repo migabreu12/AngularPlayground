@@ -19,12 +19,16 @@
                     {{ gender }}
                 </label>
             </div>
-            <!-- The formArrayName synchronizes the template element to the form group object (which tells angular that the formArray will "live" within this element) -->
+            <!-- The formArrayName synchronizes the template element to the form group object (which tells angular that the formArray will "live" within this element). -->
+            <!-- Removing the formArrayName="hobbies" will not "sync" the template with the code behind (but the code still compiles without errors because 
+                angular creates the form control elements). The input data, will not be added to the code behind because it is not synced. The syncing happens
+                via the index assignment in the [formControlName]="i" line of code -->
             <div formArrayName="hobbies">
                 <h3>Hobbies</h3>
                 <button class="btn btn-primary" type="button" (click)="addHobby()">Add Hobby</button>
                 <div class="form-group">
-                    <!-- I deviated from the example here because the ngFor loop was on the form group rather than the input -->
+                    <!-- I deviated from the example here because the ngFor loop was on the form group rather than the input. We don't choose the name for the 
+                    formControlName but rather it's the index. -->
                     <input *ngFor="let hobby of getHobbyControls(); let i = index" type="text" class="form-control" [formControlName]="i">
                 </div>
             </div>
