@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-form-example',
@@ -18,7 +19,9 @@ export class ReactiveFormExampleComponent implements OnInit {
         // The first parameter of the form control (form state) is actually the initial value of the form control
         // "username": new FormControl(null, Validators.required),
         "username": new FormControl(null, [Validators.required, this.customValidator.bind(this)]),
-        "email": new FormControl(null, [Validators.required, Validators.email]),
+        // The custom async validator will add the ng-pending class while the call is pending and will replace ng-pending with
+        // either ng-valid or ng-invalid when the call resolves.
+        "email": new FormControl(null, [Validators.required, Validators.email], [this.customAsyncValidator]),
       }),
       "gender": new FormControl("male"),
       "hobbies": new FormArray([])
@@ -49,5 +52,17 @@ export class ReactiveFormExampleComponent implements OnInit {
     }
 
     return null;
+  }
+
+  public customAsyncValidator(formControl: FormControl): Promise<any> | Observable<any> {
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if(formControl.value == "test@test.com") {
+          resolve({ "emailIsForbidden": true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
   }
 }
