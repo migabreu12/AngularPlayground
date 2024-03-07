@@ -18,7 +18,7 @@
                 <input type="text" class="form-control" formControlName="projectName">
                 <input type="email" class="form-control" formControlName="email">
                 <select formControlName="projectStatus">
-                    <option value="status" *ngFor="let status of projectStatuses">{{ status }}</option>
+                    <option [ngValue]="status" *ngFor="let status of projectStatuses">{{ status }}</option>
                 </select>
             </div>
             <button
