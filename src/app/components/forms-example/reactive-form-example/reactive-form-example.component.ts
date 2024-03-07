@@ -13,9 +13,11 @@ export class ReactiveFormExampleComponent implements OnInit {
   public ngOnInit(): void {
     // "Controls are basically key valued pairs we pass into the form group"
     this.exampleForm = new FormGroup({
-      // The first parameter of the form control (form state) is actually the initial value of the form control
-      "username": new FormControl(null, Validators.required),
-      "email": new FormControl(null, [Validators.required, Validators.email]),
+      "userData": new FormGroup({
+        // The first parameter of the form control (form state) is actually the initial value of the form control
+        "username": new FormControl(null, Validators.required),
+        "email": new FormControl(null, [Validators.required, Validators.email]),
+      }),
       "gender": new FormControl("male")
     })
   }
