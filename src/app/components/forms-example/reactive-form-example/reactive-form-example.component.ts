@@ -9,13 +9,15 @@ import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '
 export class ReactiveFormExampleComponent implements OnInit {
   public genders = ['male', 'female'];
   public exampleForm: FormGroup;
+  public forbiddenNames = ['admin', 'master'];
 
   public ngOnInit(): void {
     // "Controls are basically key valued pairs we pass into the form group"
     this.exampleForm = new FormGroup({
       "userData": new FormGroup({
         // The first parameter of the form control (form state) is actually the initial value of the form control
-        "username": new FormControl(null, Validators.required),
+        // "username": new FormControl(null, Validators.required),
+        "username": new FormControl(null, [Validators.required, this.customValidator.bind(this)]),
         "email": new FormControl(null, [Validators.required, Validators.email]),
       }),
       "gender": new FormControl("male"),
@@ -39,5 +41,13 @@ export class ReactiveFormExampleComponent implements OnInit {
   // This method is needed because the example code attempts to get the hobbies in the template (which is not allowed anymore)
   public getHobbyControls(): AbstractControl<any, any>[] {
     return (<FormArray>this.exampleForm.get("hobbies")).controls;
+  }
+
+  public customValidator(formControl: FormControl): {[errorCode: string]: boolean} {
+    if(this.forbiddenNames.indexOf(String(formControl.value).toLowerCase()) != -1) {
+      return {"nameIsForbidden": true};
+    }
+
+    return null;
   }
 }
