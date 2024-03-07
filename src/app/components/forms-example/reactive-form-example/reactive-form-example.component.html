@@ -19,6 +19,7 @@
                     {{ gender }}
                 </label>
             </div>
+            <!-- The formArrayName synchronizes the template element to the form group object (which tells angular that the formArray will "live" within this element) -->
             <div formArrayName="hobbies">
                 <h3>Hobbies</h3>
                 <button class="btn btn-primary" type="button" (click)="addHobby()">Add Hobby</button>
