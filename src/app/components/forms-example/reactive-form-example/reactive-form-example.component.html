@@ -19,6 +19,14 @@
                     {{ gender }}
                 </label>
             </div>
+            <div formArrayName="hobbies">
+                <h3>Hobbies</h3>
+                <button class="btn btn-primary" type="button" (click)="addHobby()">Add Hobby</button>
+                <div class="form-group">
+                    <!-- I deviated from the example here because the ngFor loop was on the form group rather than the input -->
+                    <input *ngFor="let hobby of getHobbyControls(); let i = index" type="text" class="form-control" [formControlName]="i">
+                </div>
+            </div>
             <span class="help-block" *ngIf="!exampleForm.valid && exampleForm.touched">Please enter a valid user data</span>
             <button class="btn btn-primary" type="submit" [disabled]="!this.exampleForm.valid || !this.exampleForm.touched">Submit</button>
         </form>
