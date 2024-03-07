@@ -19,4 +19,8 @@ export class ReactiveFormExampleComponent implements OnInit {
       "gender": new FormControl("male")
     })
   }
+
+  public onSubmit() {
+    console.log(this.exampleForm);
+  }
 }
