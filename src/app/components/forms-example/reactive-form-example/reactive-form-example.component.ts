@@ -25,7 +25,18 @@ export class ReactiveFormExampleComponent implements OnInit {
       }),
       "gender": new FormControl("male"),
       "hobbies": new FormArray([])
-    })
+    });
+
+    // Examples of value and status change subscriptions
+    // this.exampleForm.valueChanges.subscribe((changes) => {
+    //   // The value changes parameter is the form object itself (of type FormGroup since that's what we assign to this.exampleForm) with all
+    //   // the values of the form (userdata, gender, hobbies)
+    //   console.log(changes);
+    // });
+
+    this.exampleForm.statusChanges.subscribe((formStatus) => {
+      console.log(formStatus);
+    });
   }
 
   public onSubmit() {
@@ -47,7 +58,7 @@ export class ReactiveFormExampleComponent implements OnInit {
   }
 
   public customValidator(formControl: FormControl): {[errorCode: string]: boolean} {
-    if(this.forbiddenNames.indexOf(String(formControl.value).toLowerCase()) != -1) {
+    if(this.forbiddenNames.indexOf(String(formControl.value).toLowerCase()) !== -1) {
       return {"nameIsForbidden": true};
     }
 
@@ -55,7 +66,10 @@ export class ReactiveFormExampleComponent implements OnInit {
   }
 
   public customAsyncValidator(formControl: FormControl): Promise<any> | Observable<any> {
-    return new Promise<any>((resolve, reject) => {
+    // For some reason, returning the promise caused the state to never return valid.
+    // The reason is unknown for now; The workaround (which was in the example) is to
+    // set the promise to a const and return the const.
+    const promise = new Promise<any>((resolve, reject) => {
       setTimeout(() => {
         if(formControl.value == "test@test.com") {
           resolve({ "emailIsForbidden": true });
@@ -64,5 +78,7 @@ export class ReactiveFormExampleComponent implements OnInit {
         }
       }, 1500);
     });
+
+    return promise;
   }
 }
