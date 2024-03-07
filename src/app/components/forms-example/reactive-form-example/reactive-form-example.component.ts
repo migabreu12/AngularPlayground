@@ -37,6 +37,9 @@ export class ReactiveFormExampleComponent implements OnInit {
     this.exampleForm.statusChanges.subscribe((formStatus) => {
       console.log(formStatus);
     });
+
+    // Using setValue or patchValue stil; work here on the exampleForm and will also trigger the validators.
+    // Can also use reset on the exampleForm
   }
 
   public onSubmit() {
