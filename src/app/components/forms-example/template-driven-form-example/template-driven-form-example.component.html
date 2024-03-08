@@ -1,6 +1,12 @@
 <!-- Template driven approach means you should prioritize making changes and decisions in the template -->
 <!-- For the template approach, must set reference name to ngForm -->
 <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
+<!--
+    Side note from the course project
+    The template driven approach from the example solves negative numbers using the pattern directive.
+    The pattern directive allows the input field to adhere to a regex pattern.
+    The example code is: pattern="^[1-9]+[0-9]*$]"
+-->
 <form (ngSubmit)="onSubmit()" #f="ngForm">
     <!-- ngModelGroup="" gives the grouped data it's own object in the value section of the form data -->
     <!-- #userData="ngModelGroup" allows the template to have access to the form group's data from
