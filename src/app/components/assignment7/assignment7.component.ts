@@ -56,6 +56,6 @@ export class Assignment7Component implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.assignmentForm);
+    console.log(this.assignmentForm.value);
   }
 }
