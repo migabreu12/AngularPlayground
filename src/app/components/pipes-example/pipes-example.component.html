@@ -1,3 +1,4 @@
+<!-- A pipe's meant to transform the output so a logical place to use them is the template -->
 Example String: {{ exampleString }}
 <br>
 Example String Caps: {{ exampleString | uppercase }}
@@ -5,6 +6,9 @@ Example String Caps: {{ exampleString | uppercase }}
 Example Date: {{ exampleDate }}
 <br>
 Example Date Transformed: {{ exampleDate | date }}
+<br>
+<!-- More parameters can be added by supplying additional colons after the first parameter -->
+Example Date Transformed with parameter: {{ exampleDate | date:'fullDate' }}
 <hr>
 Example Status with transformation:
 <br>
