@@ -1,1 +1,13 @@
-<p>pipes-example works!</p>
+Example String: {{ exampleString }}
+<br>
+Example String Caps: {{ exampleString | uppercase }}
+<hr>
+Example Date: {{ exampleDate }}
+<br>
+Example Date Transformed: {{ exampleDate | date }}
+<hr>
+Example Status with transformation:
+<br>
+<div *ngFor="let status of exampleStatuses">
+    {{ status | uppercase }}
+</div>

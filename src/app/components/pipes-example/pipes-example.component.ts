@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pipes-example.component.scss']
 })
 export class PipesExampleComponent {
-
+  public exampleDate = new Date();
+  public exampleString = "Example String";
+  public exampleStatuses = ["small", "large"];
 }
