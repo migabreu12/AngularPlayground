@@ -27,6 +27,7 @@ import { TemplateDrivenFormExampleComponent } from './components/forms-example/t
 import { ReactiveFormExampleComponent } from './components/forms-example/reactive-form-example/reactive-form-example.component';
 import { Assignment7Component } from './components/assignment7/assignment7.component';
 import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
+import { ShortenPipe } from './shared/pipes/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { PipesExampleComponent } from './components/pipes-example/pipes-example.
     ReactiveFormExampleComponent,
     Assignment7Component,
     PipesExampleComponent,
+    ShortenPipe,
   ],
   imports: [
     BrowserModule,

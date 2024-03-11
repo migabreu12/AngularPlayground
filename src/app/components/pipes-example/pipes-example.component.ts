@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class PipesExampleComponent {
   public exampleDate = new Date();
   public exampleString = "Example String";
+  public reallyLongString = "Very long example string lhsjadflksjafdlksajdfasljkf";
   public exampleStatuses = ["small", "large"];
 }
