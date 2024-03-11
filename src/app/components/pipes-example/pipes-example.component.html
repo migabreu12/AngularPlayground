@@ -20,3 +20,11 @@ Example Status with transformation:
 <div *ngFor="let status of exampleStatuses">
     {{ status | uppercase }}
 </div>
+<hr>
+Example of custom ng for pipe:
+<br>
+<input type="text" [(ngModel)]="filteredStatus">
+<div *ngFor="let object of exampleOfNgFormCustomPipe | filter:filteredStatus:'status'">
+    {{ object.status }}
+    <br>
+</div>

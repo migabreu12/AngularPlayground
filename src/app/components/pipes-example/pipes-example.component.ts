@@ -10,4 +10,8 @@ export class PipesExampleComponent {
   public exampleString = "Example String";
   public reallyLongString = "Very long example string lhsjadflksjafdlksajdfasljkf";
   public exampleStatuses = ["small", "large"];
+  public filteredStatus = "";
+  public exampleOfNgFormCustomPipe = [
+    { status: "OfflineStatus" }, { status: "TestStatus" }, { status: "Full"}, { status: "Live" }, { status: "OfflineStatus" }
+  ];
 }

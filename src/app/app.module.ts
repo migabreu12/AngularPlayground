@@ -28,6 +28,7 @@ import { ReactiveFormExampleComponent } from './components/forms-example/reactiv
 import { Assignment7Component } from './components/assignment7/assignment7.component';
 import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
 import { ShortenPipe } from './shared/pipes/shorten.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ShortenPipe } from './shared/pipes/shorten.pipe';
     Assignment7Component,
     PipesExampleComponent,
     ShortenPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
