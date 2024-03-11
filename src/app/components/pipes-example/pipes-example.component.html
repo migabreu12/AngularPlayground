@@ -9,6 +9,9 @@ Example Date Transformed: {{ exampleDate | date }}
 <br>
 <!-- More parameters can be added by supplying additional colons after the first parameter -->
 Example Date Transformed with parameter: {{ exampleDate | date:'fullDate' }}
+<br>
+<!-- Order Matters; Setting the uppercase first makes the uppercase attempt to uppercase a date type rather than a string .-->
+Example Date Transformed with multiple pipes: {{ exampleDate | date:'fullDate' | uppercase }}
 <hr>
 Example Status with transformation:
 <br>
