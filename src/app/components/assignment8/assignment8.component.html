@@ -1,1 +1,4 @@
-<p>assignment8 works!</p>
+<h3>Stones for sale - but backwards names!</h3>
+<div *ngFor="let gemstone of gemstonesForSale">
+    {{ gemstone.name | reverseName }} - ${{ gemstone.amount }}
+</div>
