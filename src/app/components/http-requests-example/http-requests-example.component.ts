@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-http-requests-example',
@@ -40,6 +41,19 @@ export class HttpRequestsExampleComponent implements OnInit {
   private fetchPosts() {
     this.http
       .get("https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json")
+      .pipe(map(responseData => {
+        const postsArray = [];
+        for(let key in responseData) {
+          if(responseData.hasOwnProperty(key)) {
+            // Creates a new object where ... then flattens the existing object to be individual
+            // objects that will be added as a property of the new object we're creating.
+            // the Key is a new property we're adding to the new object.
+            postsArray.push({ ...responseData[key], id: key });
+          }
+        }
+
+        return postsArray;
+      }))
       .subscribe(responseData => {
         console.log(responseData);
       })
