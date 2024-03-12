@@ -1,4 +1,4 @@
 <h3>Stones for sale - but backwards names!</h3>
-<div *ngFor="let gemstone of gemstonesForSale">
+<div *ngFor="let gemstone of gemstonesForSale | gemstoneSort">
     {{ gemstone.name | reverseName }} - ${{ gemstone.amount }}
 </div>
