@@ -14,4 +14,10 @@ export class PipesExampleComponent {
   public exampleOfNgFormCustomPipe = [
     { status: "OfflineStatus" }, { status: "TestStatus" }, { status: "Full"}, { status: "Live" }, { status: "OfflineStatus" }
   ];
+  // Yhe async pipe watches for changes (like a subscription) and displays data on callback resolve
+  public exampleOfAsyncPipe = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Myth Busted");
+    },2000);
+  })
 }
