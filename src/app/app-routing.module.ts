@@ -17,6 +17,7 @@ import { TemplateDrivenFormExampleComponent } from './components/forms-example/t
 import { ReactiveFormExampleComponent } from './components/forms-example/reactive-form-example/reactive-form-example.component';
 import { Assignment7Component } from './components/assignment7/assignment7.component';
 import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
+import { Assignment8Component } from './components/assignment8/assignment8.component';
 
 const routes: Routes = [
   // Add pathMatch full to ensure that we get redirected to the home component only when there is nothing in the path.
@@ -80,6 +81,10 @@ const routes: Routes = [
   {
     path: "pipesExample",
     component: PipesExampleComponent
+  },
+  {
+    path: "assignment8",
+    component: Assignment8Component
   },
   // Routes get parsed from top to bottom so ensure that the wild card route is the very last.
   // If the wild card is not the very last in the routes list then we will always get the not found page

@@ -29,6 +29,7 @@ import { Assignment7Component } from './components/assignment7/assignment7.compo
 import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
 import { ShortenPipe } from './shared/pipes/shorten.pipe';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { Assignment8Component } from './components/assignment8/assignment8.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     PipesExampleComponent,
     ShortenPipe,
     FilterPipe,
+    Assignment8Component,
   ],
   imports: [
     BrowserModule,
