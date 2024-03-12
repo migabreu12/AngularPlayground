@@ -32,6 +32,7 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { Assignment8Component } from './components/assignment8/assignment8.component';
 import { ReverseNamePipe } from './shared/pipes/reverse-name.pipe';
 import { GemstoneSortPipe } from './shared/pipes/gemstone-sort.pipe';
+import { HttpRequestsExampleComponent } from './components/http-requests-example/http-requests-example.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { GemstoneSortPipe } from './shared/pipes/gemstone-sort.pipe';
     Assignment8Component,
     ReverseNamePipe,
     GemstoneSortPipe,
+    HttpRequestsExampleComponent,
   ],
   imports: [
     BrowserModule,
