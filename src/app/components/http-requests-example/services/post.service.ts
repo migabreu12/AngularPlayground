@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, map } from 'rxjs';
+import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { Post } from 'src/app/components/http-requests-example/models/post.model';
 
 @Injectable({
@@ -48,6 +48,11 @@ export class PostService {
         }
 
         return postsArray;
+      }),
+      catchError(errorResponse => {
+        // Do other things like send to analytics server for example
+        console.log(errorResponse);
+        return throwError(errorResponse);
       })
     );
   }
