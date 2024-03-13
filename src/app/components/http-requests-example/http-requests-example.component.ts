@@ -10,6 +10,7 @@ import { Post } from './models/post.model';
 })
 export class HttpRequestsExampleComponent implements OnInit {
   loadedPosts: Post[] = [];
+  isFetching = false;
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +41,7 @@ export class HttpRequestsExampleComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFetching = true;
     this.http
       // This is another way to assign the type of the response data (before it even gets to pipes)
       // The <...> after the get can be removed to be of type any
@@ -64,6 +66,7 @@ export class HttpRequestsExampleComponent implements OnInit {
       )
       .subscribe(posts => {
         this.loadedPosts = posts;
+        this.isFetching = false;
       })
   }
 }
