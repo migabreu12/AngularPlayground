@@ -19,7 +19,10 @@ export class HttpRequestsExampleComponent implements OnInit {
   }
 
   public onCreatePost(postData: Post) {
-    this.postService.createAndStorePost(postData.title, postData.content);
+    this.postService.createAndStorePost(postData.title, postData.content).subscribe(() => {
+      // Can be handled better
+      this.fetchPosts();
+    });
   }
 
   public onFetchPosts() {
