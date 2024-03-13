@@ -9,7 +9,7 @@ import { Post } from './models/post.model';
   styleUrls: ['./http-requests-example.component.scss']
 })
 export class HttpRequestsExampleComponent implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -63,7 +63,7 @@ export class HttpRequestsExampleComponent implements OnInit {
         })
       )
       .subscribe(posts => {
-        console.log(posts);
+        this.loadedPosts = posts;
       })
   }
 }
