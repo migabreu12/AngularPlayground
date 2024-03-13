@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
 import { Post } from './models/post.model';
-import { PostService } from 'src/app/shared/services/post.service';
+import { PostService } from 'src/app/components/http-requests-example/services/post.service';
 
 @Component({
   selector: 'app-http-requests-example',
@@ -27,6 +26,13 @@ export class HttpRequestsExampleComponent implements OnInit {
     this.fetchPosts();
   }
 
+  public onClearPosts() {
+    // Send Http request
+    this.postService.clearPosts().subscribe(() => {
+      this.loadedPosts = [];
+    });
+  }
+
   private fetchPosts() {
     // Send Http request
     this.isFetching = true;
@@ -34,9 +40,5 @@ export class HttpRequestsExampleComponent implements OnInit {
       this.isFetching = false;
       this.loadedPosts = posts;
     });
-  }
-
-  public onClearPosts() {
-    // Send Http request
   }
 }
