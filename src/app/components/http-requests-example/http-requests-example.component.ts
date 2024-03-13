@@ -9,8 +9,10 @@ import { PostService } from 'src/app/components/http-requests-example/services/p
   styleUrls: ['./http-requests-example.component.scss']
 })
 export class HttpRequestsExampleComponent implements OnInit {
-  loadedPosts: Post[] = [];
-  isFetching = false;
+  public loadedPosts: Post[] = [];
+  public isFetching = false;
+  public error = false;
+
 
   constructor(private http: HttpClient, private postService: PostService) {}
 
@@ -42,6 +44,9 @@ export class HttpRequestsExampleComponent implements OnInit {
     this.postService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
+    }, error => {
+      this.error = error.message;
+      this.isFetching = false;
     });
   }
 }
