@@ -23,7 +23,8 @@ export class PostService {
       // Example of requesting more than just the response data from the body
       {
         // Body is default; Response gives the entire response object
-        observe: "response"
+        observe: "response",
+        responseType: "json"
       }
     ).subscribe(responseData => {
       console.log(responseData)
@@ -82,7 +83,11 @@ export class PostService {
     return this.http.delete(
         "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
         {
-          observe: "events"
+          observe: "events",
+          // Can use json to tell angular to parse the response data as a javascript object
+          // Can use text to tell angular to leave it as text
+          // Can use blob to conver to a blob
+          responseType: "text"
         }
       ).pipe(
         // Tap let's us do something with the response but does not allow modification of the
