@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +34,7 @@ import { Assignment8Component } from './components/assignment8/assignment8.compo
 import { ReverseNamePipe } from './shared/pipes/reverse-name.pipe';
 import { GemstoneSortPipe } from './shared/pipes/gemstone-sort.pipe';
 import { HttpRequestsExampleComponent } from './components/http-requests-example/http-requests-example.component';
+import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,11 @@ import { HttpRequestsExampleComponent } from './components/http-requests-example
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  // The provide: HTTP_INTERCEPTORS tells angular that it will run all interceptor services
+  // before any request leaves the app. The multi portion allows for angular to continue
+  // using existing interceptors and not allow for the servcie to "overwrite" existing
+  // interceptors.
+  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

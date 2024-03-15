@@ -84,7 +84,7 @@ export class PostService {
         "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
         {
           observe: "events",
-          // Can use json to tell angular to parse the response data as a javascript object
+          // Can use json to tell angular to parse the response data as a javascript object; The default is json.
           // Can use text to tell angular to leave it as text
           // Can use blob to conver to a blob
           responseType: "text"
