@@ -44,6 +44,10 @@ export class HttpRequestsExampleComponent implements OnInit, OnDestroy {
     this.errorSubscription.unsubscribe();
   }
 
+  public onHandleError(): void {
+    this.error = null;
+  }
+
   private fetchPosts() {
     // Send Http request
     this.isFetching = true;
