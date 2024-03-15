@@ -35,6 +35,7 @@ import { ReverseNamePipe } from './shared/pipes/reverse-name.pipe';
 import { GemstoneSortPipe } from './shared/pipes/gemstone-sort.pipe';
 import { HttpRequestsExampleComponent } from './components/http-requests-example/http-requests-example.component';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { LoggingInterceptorService } from './shared/services/logging-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -78,8 +79,14 @@ import { AuthInterceptorService } from './shared/services/auth-interceptor.servi
   // The provide: HTTP_INTERCEPTORS tells angular that it will run all interceptor services
   // before any request leaves the app. The multi portion allows for angular to continue
   // using existing interceptors and not allow for the servcie to "overwrite" existing
-  // interceptors.
-  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
+  // interceptors. Order matters when adding interceptors. What's really important is
+  // that the first interceptor get's executed when sending but the last interceptor
+  // get's executed first when the response comes back (queue then stack)
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
