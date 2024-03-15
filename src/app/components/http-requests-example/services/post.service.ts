@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, catchError, map, throwError } from 'rxjs';
+import { Observable, Subject, catchError, map, tap, throwError } from 'rxjs';
 import { Post } from 'src/app/components/http-requests-example/models/post.model';
 
 @Injectable({
@@ -19,7 +19,12 @@ export class PostService {
     // Observables will not fire/trigger unless there's a subscription
     return this.http.post<{ name: string }>(
       "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
-      postData
+      postData,
+      // Example of requesting more than just the response data from the body
+      {
+        // Body is default; Response gives the entire response object
+        observe: "response"
+      }
     ).subscribe(responseData => {
       console.log(responseData)
     }, error => {
@@ -46,6 +51,8 @@ export class PostService {
         // This way is better to send query params than updating the url
         // This is an inline approach to adding multiple params
         params: new HttpParams().set("print", "pretty").set("Custom", "Key")
+        // Example of using variable
+        // params: searchParams
       })
     .pipe(
       // THis is one way to assign the type of the response data
@@ -72,6 +79,29 @@ export class PostService {
   }
 
   public clearPosts() {
-    return this.http.delete("https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json");
+    return this.http.delete(
+        "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
+        {
+          observe: "events"
+        }
+      ).pipe(
+        // Tap let's us do something with the response but does not allow modification of the
+        // value that will be passed on to subscriptions; As a result, you don't need to
+        // use the return keyword since you'll get the data, do something with the data,
+        // and then the pipe will continue along.
+        tap((event) => {
+          console.log(event);
+          // You can use the . operator here to see what the different types of HttpEventTypes are available
+          if(event.type === HttpEventType.Sent) {
+            // You can react to getting this event type by maybe updating the
+            // UI to show that the message was sent and we're waiting or update
+            // the UI to show that the message was sent.
+          }
+
+          if(event.type === HttpEventType.Response) {
+            console.log(event.body);
+          }
+        })
+      );
   }
 }
