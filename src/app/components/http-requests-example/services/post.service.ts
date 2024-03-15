@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { Post } from 'src/app/components/http-requests-example/models/post.model';
@@ -32,7 +32,12 @@ export class PostService {
     // This is another way to assign the type of the response data (before it even gets to pipes)
     // The <...> after the get can be removed to be of type any
     // Setting the response data type using <...> is available on all types of requests
-    .get<{ [key: string]: Post }>("https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json")
+    .get<{ [key: string]: Post }>(
+      "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
+      {
+        // Example of sending a custom header with a value as part of the request
+        headers: new HttpHeaders({"Custom-Header": "Hello"})
+      })
     .pipe(
       // THis is one way to assign the type of the response data
       // map((responseData: { [key: string]: Post }) => {
