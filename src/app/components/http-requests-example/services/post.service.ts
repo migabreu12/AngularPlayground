@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { Post } from 'src/app/components/http-requests-example/models/post.model';
@@ -28,6 +28,12 @@ export class PostService {
   }
 
   public fetchPosts(): Observable<Post[]> {
+    // A way to add multiple params outside of the http request. This variable is not used but left in
+    // as an example
+    let searchParams = new HttpParams();
+    searchParams = searchParams.append("print", "pretty");
+    searchParams = searchParams.append("Custom", "Key");
+
     return this.http
     // This is another way to assign the type of the response data (before it even gets to pipes)
     // The <...> after the get can be removed to be of type any
@@ -36,7 +42,10 @@ export class PostService {
       "https://udemyangularcourse-16627-default-rtdb.firebaseio.com/posts.json",
       {
         // Example of sending a custom header with a value as part of the request
-        headers: new HttpHeaders({"Custom-Header": "Hello"})
+        headers: new HttpHeaders({"Custom-Header": "Hello"}),
+        // This way is better to send query params than updating the url
+        // This is an inline approach to adding multiple params
+        params: new HttpParams().set("print", "pretty").set("Custom", "Key")
       })
     .pipe(
       // THis is one way to assign the type of the response data
