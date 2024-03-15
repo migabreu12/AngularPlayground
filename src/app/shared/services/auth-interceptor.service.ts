@@ -1,6 +1,6 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpEventType, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,15 @@ export class AuthInterceptorService implements HttpInterceptor {
     console.log("This is the moment before the request get's sent.");
     // The following line allows the request to "continue" to be sent
     // return next.handle(req) is required or else the interceptor stops/breaks requests
-    return next.handle(modifiedRequest);
+    // Handle allows for modifying the response as well; We'll always get the event type as
+    // the response object
+    return next.handle(modifiedRequest).pipe(
+      tap((event) => {
+        if(event.type === HttpEventType.Response) {
+          console.log("The response has arrived! Body Data: ");
+          console.log(event.body);
+        }
+      })
+    );
   }
 }
