@@ -98,7 +98,7 @@ const routes: Routes = [
 
 @NgModule({
   // useHash enables hash mode routing; What hash mode routing means is that it will inform the server to "only care" about the part before
-  // the hash symbol (which leaves the content after the hash to angular). Hash mode routing ensures that the hosing server will not
+  // the hash symbol (which leaves the content after the hash to angular). Hash mode routing ensures that the hosting server will not
   // interfere with the url path. Using hash mode is a good technique to work around hosting servers that cannot return the index.html
   // file in the case of a 404 occurance.
   // imports: [RouterModule.forRoot(routes, {useHash: true})],

@@ -4,7 +4,7 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
 
 @Component({
   selector: 'app-server', //angular element
-  // selector: '[app-server∂]', // attribute way
+  // selector: '[app-server]', // attribute way
   // selector: '.app-server', // css class way
   templateUrl: './app-server.component.html',
   // Encapsulation is a feature of angular that let's each component have a unique class
@@ -12,7 +12,7 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // For example, adding color red to this component's scss file will change all text to red within
   // this component; The way the color: red is applied, though, is via the encapsulation class that's
   // applied to this component's html elements found within the html file (templateUrl).
-  // Setting ViewEncapsulation.None turns this angular feature off.Turning off encapsulation
+  // Setting ViewEncapsulation.None turns this angular feature off. Turning off encapsulation
   // removes the html classes which then opens up the component to be modified by other existing styles
   // from parent components. Encapsulation also ensures that other component styling (like parent components)
   // don't leak into this component.
@@ -25,7 +25,7 @@ import { SampleDataService } from 'src/app/shared/services/sample-data.service';
   // providers: [LoggingService]
   // Another way is to use the inject method to assign a local property the service. The following code illustrates that:
   // this.loggingService = inject(LoggingService);
-  // Important note: The service that's injected will also be instance that's injected to child components.
+  // Important note: The service that's injected will also be the instance that's injected to child components.
   // "The instances don't propogate up, they only go down that tree of components"
   // Another thing to note is that adding the service to the providers will create a new instance of thet service.
   // Of course, adding the service to the providers list of the app module will ensure every injection shares the same instance.

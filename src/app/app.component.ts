@@ -20,7 +20,8 @@ export class AppComponent {
     // Because relativeTo: this.route uses the component's current "path" via routing, it will always work correctly since it's current
     // route will always be "".
     // Here's the explanation on relative to:
-    // "Relative to" means relative to the component in which this navigation is defined, not relative to the url which is currently displayed in the browser's address bar (which is not necessarily the same).
+    // "Relative to" means relative to the component in which this navigation is defined,
+    // not relative to the url which is currently displayed in the browser's address bar (which is not necessarily the same).
     this.router.navigate(["assignment4"], { relativeTo: this.route });
   }
 }

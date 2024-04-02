@@ -78,7 +78,7 @@ import { LoggingInterceptorService } from './shared/services/logging-interceptor
   ],
   // The provide: HTTP_INTERCEPTORS tells angular that it will run all interceptor services
   // before any request leaves the app. The multi portion allows for angular to continue
-  // using existing interceptors and not allow for the servcie to "overwrite" existing
+  // using existing interceptors and not allow for the service to "overwrite" existing
   // interceptors. Order matters when adding interceptors. What's really important is
   // that the first interceptor get's executed when sending but the last interceptor
   // get's executed first when the response comes back (queue then stack)
